@@ -1,23 +1,25 @@
-# 2026 Business Analyst & Data Analyst Full-Time (New Grad) Positions
+# 2026 Business Analyst & Data Analyst Jobs (Full-Time + Internships)
 
-This repository maintains an **auto-updating** list of Business Analyst / Data Analyst full-time roles (focused on new-grad/early-career postings).
+This repository is an **auto-updating** list of BA/DA roles (full-time new grad + internships).
 
-## How it updates
+Last updated: **2026-01-24 20:50 (UTC)**
 
-Every day, a GitHub Action:
-1. Fetches the latest markdown job tables from the public upstream repos:
-   - `speedyapply/2026-SWE-College-Jobs`
-   - `speedyapply/2026-AI-College-Jobs`
-2. Filters roles by title keywords (see `.github/scripts/src/config.ts`).
-3. Rewrites the tables in this repository.
+## Quick Links
 
-## Quick links
-
+### Full-Time (New Grad)
 - USA: [NEW_GRAD_USA.md](/NEW_GRAD_USA.md)
 - International: [NEW_GRAD_INTL.md](/NEW_GRAD_INTL.md)
 
-## Important limitations
+### Internships
+- USA: [INTERN_USA.md](/INTERN_USA.md)
+- International: [INTERN_INTL.md](/INTERN_INTL.md)
 
-- This list is only as comprehensive as the upstream sources; it will **miss** companies that aren't included there.
-- Title filtering can produce false positives/negatives. Expect to tune `INCLUDE_TITLE_PATTERNS` / `EXCLUDE_TITLE_PATTERNS`.
-- GitHub disables scheduled workflows by default in forks. You must enable Actions in your fork for daily updates.
+## Sponsorship
+
+- The generator attempts to parse **H1B sponsorship signals** from Jobright job pages when available.
+- Many postings do not explicitly state sponsorship. **Unknown** does not mean **No**.
+
+## Update Schedule
+
+- GitHub Actions runs every **6 hours (UTC)** (best-effort; GitHub may delay scheduled runs).
+- If this is a fork, you must enable Actions in your repo settings.

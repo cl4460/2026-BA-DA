@@ -1,28 +1,14 @@
-## 2026 International Business Analyst & Data Analyst Full-Time (New Grad) Positions :mortar_board::globe_with_meridians:
+# 2026 International Business Analyst & Data Analyst Full-Time (New Grad) Positions
 
-Updated: **(auto)**
+Updated: **2026-01-24 20:50 (UTC)**
 
-Total roles: **(auto)**
+Total roles: **0**
 
-### FAANG+
-
-<!-- TABLE_FAANG_START -->
-| Company | Position | Location | Salary | Posting | Age | Source |
-|---|---|---|---|---|---|---|
-<!-- TABLE_FAANG_END -->
-
-### Quant
-
-<!-- TABLE_QUANT_START -->
-| Company | Position | Location | Salary | Posting | Age | Source |
-|---|---|---|---|---|---|---|
-<!-- TABLE_QUANT_END -->
-
-### Other
+Sponsorship column is a best-effort signal (parsed from Jobright H1B labels when available). Always verify on the official posting.
 
 <!-- TABLE_START -->
-| Company | Position | Location | Salary | Posting | Age | Source |
-|---|---|---|---|---|---|---|
+| Company | Position | Location | Work Model | Sponsorship | Posting | Age | Source |
+|---|---|---|---|---|---|---|---|
 <!-- TABLE_END -->
 
 <a name="bottom"></a>

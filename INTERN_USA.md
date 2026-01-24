@@ -1,4 +1,4 @@
-# 2026 USA Business Analyst & Data Analyst Full-Time (New Grad) Positions
+# 2026 USA Business Analyst & Data Analyst Internships
 
 Updated: **2026-01-24 20:50 (UTC)**
 

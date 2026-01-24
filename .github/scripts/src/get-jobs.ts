@@ -1,403 +1,973 @@
-import * as fs from "fs";
-import * as path from "path";
-
+import { mkdirSync, existsSync, readFileSync, writeFileSync } from "fs";
+import path from "path";
 import {
-  EXCLUDE_TITLE_PATTERNS,
-  HEADERS,
-  INCLUDE_TITLE_PATTERNS,
-  MARKERS,
-  MAX_AGE_DAYS,
-  README_PATH,
+  SOURCES,
+  TRACKS,
   REGIONS,
-  UPSTREAM_SOURCES,
+  INCLUDE_TITLE_PATTERNS,
+  EXCLUDE_TITLE_PATTERNS,
+  EXCLUDE_NEW_GRAD_ONLY_PATTERNS,
+  INTERN_TITLE_PATTERNS,
+  USA_LOCATION_PATTERNS,
+  type RegionId,
+  type TrackId,
+  type Source,
 } from "./config";
 
-type Category = keyof typeof MARKERS;
-type Region = (typeof REGIONS)[number];
-type UpstreamSource = (typeof UPSTREAM_SOURCES)[number];
+type SponsorshipStatus = "Likely" | "No" | "Unknown";
 
-type Row = {
-  company: string;
+type SponsorCacheEntry = {
+  status: SponsorshipStatus;
+  note?: string;
+  checkedAtIso: string;
+  isClosed?: boolean;
+};
+
+type SponsorCache = Record<string, SponsorCacheEntry>;
+
+type JobRow = {
+  companyName: string;
+  companyUrl: string | null;
   position: string;
   location: string;
-  salary: string;
-  posting: string;
-  age: string;
-  ageDays: number;
-  jobUrl: string;
-  sourceCell: string;
-  category: Category;
+  workModel: string | null;
+  postingUrl: string;
+  ageDays: number | null; // null when unknown
+  sourceShort: string;
+  sourceUrl: string;
+
+  sponsorship: SponsorshipStatus;
+  sponsorshipNote?: string;
+  isClosed?: boolean;
+
+  track: TrackId;
+  region: RegionId;
 };
 
-type RegionTables = Record<Category, Row[]>;
+const APPLY_IMG_URL = "https://i.imgur.com/JpkfjIq.png";
 
-const CATEGORY_PRIORITY: Record<Category, number> = {
-  faang: 3,
-  quant: 2,
-  other: 1,
-};
+const CACHE_DIR = path.join(process.cwd(), "cache");
+const SPONSOR_CACHE_PATH = path.join(CACHE_DIR, "jobright_sponsor_cache.json");
 
-function normalizeText(input: string): string {
-  return (
-    input
-      // Strip HTML tags
-      .replace(/<[^>]*>/g, " ")
-      // Decode common entities
-      .replace(/&amp;/g, "&")
-      .replace(/&nbsp;/g, " ")
-      .replace(/&#39;/g, "'")
-      .replace(/&quot;/g, '"')
-      // Normalize whitespace
-      .replace(/\s+/g, " ")
-      .trim()
-      .toLowerCase()
-  );
+// When true, only keep rows with sponsorship === "Likely"
+const REQUIRE_SPONSORSHIP = (process.env.REQUIRE_SPONSORSHIP ?? "").toLowerCase() === "true";
+
+// When true, drop rows where job posting is detected closed
+const DROP_CLOSED = (process.env.DROP_CLOSED ?? "true").toLowerCase() !== "false";
+
+// Limit parallel HTTP requests when checking sponsorship (avoid being rate-limited)
+const SPONSOR_FETCH_CONCURRENCY = Number(process.env.SPONSOR_FETCH_CONCURRENCY ?? "6") || 6;
+
+// Keep cache entries for at most N days (to prevent unbounded growth)
+const SPONSOR_CACHE_KEEP_DAYS = Number(process.env.SPONSOR_CACHE_KEEP_DAYS ?? "60") || 60;
+
+function escapePipes(text: string): string {
+  return text.replace(/\|/g, "\\|");
 }
 
-function extractHref(html: string): string | null {
-  const match = html.match(/href="([^"]+)"/i);
-  return match ? match[1] : null;
+function normalizeWhitespace(text: string): string {
+  return text.replace(/\s+/g, " ").trim();
 }
 
-function parseAgeDays(ageCell: string): number | null {
-  const n = Number.parseInt(ageCell.replace(/[^0-9]/g, ""), 10);
-  if (!Number.isFinite(n)) return null;
-  if (n < 0) return null;
-  return n;
+function ensureHttps(url: string | null): string | null {
+  if (!url) return null;
+  const trimmed = url.trim();
+  if (!trimmed) return null;
+  if (trimmed.startsWith("#") || trimmed.startsWith("/")) return null;
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  if (trimmed.startsWith("//")) return `https:${trimmed}`;
+  // crude heuristic: only prefix if it looks like a hostname
+  if (/^[\w.-]+\.[A-Za-z]{2,}($|\/)/.test(trimmed)) return `https://${trimmed}`;
+  return trimmed;
 }
 
-function isTargetRole(positionCell: string): boolean {
-  const title = normalizeText(positionCell);
-
-  // Exclude first to reduce obvious false positives.
-  if (EXCLUDE_TITLE_PATTERNS.some((re) => re.test(title))) return false;
-
-  return INCLUDE_TITLE_PATTERNS.some((re) => re.test(title));
+function stripUrlQuery(url: string): string {
+  try {
+    const u = new URL(url);
+    u.search = "";
+    u.hash = "";
+    return u.toString();
+  } catch {
+    return url;
+  }
 }
 
-function extractTableBlock(
-  markdown: string,
-  marker: { start: string; end: string }
-): string {
-  const startIdx = markdown.indexOf(marker.start);
-  const endIdx = markdown.indexOf(marker.end);
+function parseHtmlOrMarkdownLink(cell: string): { text: string; url: string | null } {
+  const trimmed = cell.trim();
 
-  if (startIdx < 0 || endIdx < 0 || endIdx <= startIdx) {
-    throw new Error(
-      `Could not find table markers: ${marker.start} ... ${marker.end}`
-    );
+  // HTML: <a href="...">Text</a>
+  const htmlMatch = trimmed.match(/<a\s+[^>]*href=["']([^"']+)["'][^>]*>(.*?)<\/a>/i);
+  if (htmlMatch) {
+    const url = ensureHttps(htmlMatch[1]?.trim() ?? null);
+    const inner = htmlMatch[2]?.replace(/<[^>]+>/g, "") ?? "";
+    return { text: normalizeWhitespace(inner) || normalizeWhitespace(trimmed), url };
   }
 
-  return markdown.slice(startIdx + marker.start.length, endIdx).trim();
+  // Markdown: [Text](url)
+  const mdMatch = trimmed.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+  if (mdMatch) {
+    return { text: normalizeWhitespace(mdMatch[1] ?? ""), url: ensureHttps(mdMatch[2]?.trim() ?? null) };
+  }
+
+  return { text: normalizeWhitespace(trimmed), url: null };
 }
 
-function parseTableRows(
-  tableBlock: string,
-  source: UpstreamSource,
-  region: Region,
-  category: Category
-): Row[] {
-  const lines = tableBlock
-    .split("\n")
-    .map((l) => l.trim())
-    .filter((l) => l.startsWith("|"));
+function parseHrefFromHtmlAnchor(cell: string): string | null {
+  const m = cell.match(/<a\s+[^>]*href=["']([^"']+)["'][^>]*>/i);
+  return m ? ensureHttps(m[1]?.trim() ?? null) : null;
+}
 
-  if (lines.length < 2) return [];
+function parseAgeToDays(ageCell: string): number | null {
+  const t = ageCell.trim();
+  if (!t) return null;
 
-  const headerCols = lines[0]
-    .split("|")
-    .slice(1, -1)
-    .map((c) => c.trim());
-  const hasSalary = headerCols.some((c) => c.toLowerCase() === "salary");
+  const d = t.match(/^(\d+)\s*d$/i);
+  if (d) return Number(d[1]);
 
-  const rows: Row[] = [];
+  const h = t.match(/^(\d+)\s*h$/i);
+  if (h) return 0;
 
-  // Skip header + separator.
-  for (const line of lines.slice(2)) {
-    const cols = line
-      .split("|")
-      .slice(1, -1)
-      .map((c) => c.trim());
+  const w = t.match(/^(\d+)\s*w$/i);
+  if (w) return Number(w[1]) * 7;
 
-    // Expect either:
-    // - 5 cols: Company, Position, Location, Posting, Age
-    // - 6 cols: Company, Position, Location, Salary, Posting, Age
-    if ((hasSalary && cols.length < 6) || (!hasSalary && cols.length < 5)) {
+  const mo = t.match(/^(\d+)\s*mo$/i);
+  if (mo) return Number(mo[1]) * 30;
+
+  return null;
+}
+
+function isUsaLocation(location: string): boolean {
+  const loc = location.trim();
+  if (!loc) return false;
+  return USA_LOCATION_PATTERNS.some((re) => re.test(loc));
+}
+
+function matchesAny(patterns: readonly RegExp[], text: string): boolean {
+  return patterns.some((re) => re.test(text));
+}
+
+function shouldKeepTitle(track: TrackId, title: string): boolean {
+  const t = title.trim();
+  if (!matchesAny(INCLUDE_TITLE_PATTERNS, t)) return false;
+  if (matchesAny(EXCLUDE_TITLE_PATTERNS, t)) return false;
+
+  if (track === "new_grad" && matchesAny(EXCLUDE_NEW_GRAD_ONLY_PATTERNS, t)) return false;
+
+  return true;
+}
+
+function shouldKeepInternSanity(track: TrackId, title: string): boolean {
+  const isInternTitle = matchesAny(INTERN_TITLE_PATTERNS, title);
+  if (track === "new_grad") return !isInternTitle;
+  return true;
+}
+
+async function fetchText(url: string, timeoutMs = 20000): Promise<string> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        "User-Agent": "job-list-bot/1.0 (+https://github.com)",
+        Accept: "text/plain,text/html,*/*",
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status} for ${url}`);
+    }
+    return await res.text();
+  } finally {
+    clearTimeout(timeout);
+  }
+}
+
+async function fetchTextOrNull(url: string, timeoutMs = 20000): Promise<string | null> {
+  try {
+    return await fetchText(url, timeoutMs);
+  } catch (err) {
+    console.warn(`[warn] fetch failed: ${url}\n       ${(err as Error).message}`);
+    return null;
+  }
+}
+
+function parseSpeedyapplyMarkdown(markdown: string, source: Source, track: TrackId, region: RegionId): JobRow[] {
+  const lines = markdown.split(/\r?\n/);
+
+  let headerCells: string[] | null = null;
+  let colIndex: Record<string, number> = {};
+
+  const rows: JobRow[] = [];
+
+  for (let i = 0; i < lines.length; i += 1) {
+    const line = lines[i] ?? "";
+    const trimmed = line.trim();
+
+    // Detect table header row
+    if (
+      trimmed.startsWith("|") &&
+      trimmed.toLowerCase().includes("company") &&
+      trimmed.toLowerCase().includes("position") &&
+      trimmed.toLowerCase().includes("location")
+    ) {
+      const cells = trimmed.split("|").slice(1, -1).map((c) => c.trim());
+      headerCells = cells;
+
+      colIndex = {};
+      for (let c = 0; c < cells.length; c += 1) {
+        colIndex[cells[c] ?? ""] = c;
+      }
+
+      // Skip the separator line next (|---|---|...)
+      i += 1;
       continue;
     }
 
-    const company = cols[0] ?? "";
-    const position = cols[1] ?? "";
-    const location = cols[2] ?? "";
+    // Parse rows after a detected header
+    if (headerCells && trimmed.startsWith("|")) {
+      const cells = trimmed.split("|").slice(1, -1).map((c) => c.trim());
 
-    const salary = hasSalary ? cols[3] ?? "" : "";
-    const posting = hasSalary ? cols[4] ?? "" : cols[3] ?? "";
-    const age = hasSalary ? cols[5] ?? "" : cols[4] ?? "";
+      const companyCell = cells[colIndex["Company"] ?? -1] ?? "";
+      const position = cells[colIndex["Position"] ?? -1] ?? "";
+      const location = cells[colIndex["Location"] ?? -1] ?? "";
+      const postingCell = cells[colIndex["Posting"] ?? -1] ?? "";
+      const ageCell = cells[colIndex["Age"] ?? -1] ?? "";
+      const sourceCell = cells[colIndex["Source"] ?? -1] ?? "";
 
-    const jobUrl = extractHref(posting);
-    const ageDays = parseAgeDays(age);
+      if (!position || !location || !postingCell) continue;
 
-    // If we cannot uniquely identify the posting, skip to prevent duplicates/pollution.
-    if (!jobUrl) continue;
-    if (ageDays === null) continue;
-    if (ageDays > MAX_AGE_DAYS) continue;
-    if (!isTargetRole(position)) continue;
+      const { text: companyName, url: companyUrlRaw } = parseHtmlOrMarkdownLink(companyCell);
+      const companyUrl = ensureHttps(companyUrlRaw);
 
-    const sourceCell = `<a href="https://github.com/${source.repo}/blob/main/${region.upstreamPath}"><strong>${source.label}</strong></a>`;
+      const postingUrl = parseHrefFromHtmlAnchor(postingCell);
+
+      const ageDays = parseAgeToDays(ageCell);
+
+      const { text: sourceShort, url: sourceUrlRaw } = parseHtmlOrMarkdownLink(sourceCell);
+
+      if (!postingUrl) continue;
+
+      rows.push({
+        companyName: companyName || "Unknown",
+        companyUrl,
+        position: normalizeWhitespace(position),
+        location: normalizeWhitespace(location),
+        workModel: null,
+        postingUrl,
+        ageDays,
+        sourceShort: sourceShort || source.name,
+        sourceUrl: ensureHttps(sourceUrlRaw) || source.sourceUrl,
+        sponsorship: "Unknown",
+        track,
+        region,
+      });
+
+      continue;
+    }
+
+    // End of table if we hit a non-table line
+    if (headerCells && !trimmed.startsWith("|")) {
+      headerCells = null;
+      colIndex = {};
+    }
+  }
+
+  return rows;
+}
+
+function monthToIndex(mon: string): number | null {
+  const m = mon.toLowerCase();
+  const map: Record<string, number> = {
+    jan: 0,
+    feb: 1,
+    mar: 2,
+    apr: 3,
+    may: 4,
+    jun: 5,
+    jul: 6,
+    aug: 7,
+    sep: 8,
+    oct: 9,
+    nov: 10,
+    dec: 11,
+  };
+  return Object.prototype.hasOwnProperty.call(map, m) ? map[m]! : null;
+}
+
+function parseJobrightMonthDay(dateText: string, nowUtc: Date): Date | null {
+  const m = dateText.trim().match(/^([A-Za-z]{3})\s+(\d{1,2})$/);
+  if (!m) return null;
+
+  const monthIdx = monthToIndex(m[1] ?? "");
+  if (monthIdx === null) return null;
+
+  const day = Number(m[2]);
+  if (!Number.isFinite(day) || day < 1 || day > 31) return null;
+
+  let year = nowUtc.getUTCFullYear();
+  let d = new Date(Date.UTC(year, monthIdx, day));
+
+  // If parsed date is in the future (relative to now), assume last year.
+  if (d.getTime() > nowUtc.getTime() + 24 * 60 * 60 * 1000) {
+    year -= 1;
+    d = new Date(Date.UTC(year, monthIdx, day));
+  }
+
+  return d;
+}
+
+function jobrightSourceShort(source: Source): string {
+  // Keep it short for the table.
+  if (source.id.startsWith("jr_da")) return "JR-DA";
+  if (source.id.startsWith("jr_ba")) return "JR-BA";
+  return "JR";
+}
+
+type JobrightLineParsed = {
+  companyName: string;
+  companyUrl: string | null;
+  jobTitle: string;
+  jobUrl: string;
+  location: string;
+  workModel: string | null;
+  dateText: string | null;
+};
+
+function parseJobrightLineFreeform(
+  line: string,
+  lastCompany: { name: string; url: string | null } | null,
+): { parsed: JobrightLineParsed | null; nextCompany: { name: string; url: string | null } | null } {
+  const cleaned = line.replace(/^↳\s*/, "").trim();
+
+  const linkRe = /\[([^\]]+)\]\(([^)]+)\)/g;
+  const links = Array.from(cleaned.matchAll(linkRe));
+  if (links.length === 0) return { parsed: null, nextCompany: lastCompany };
+
+  let companyName: string;
+  let companyUrl: string | null;
+  let jobTitle: string;
+  let jobUrl: string;
+  let rest = "";
+
+  if (links.length >= 2) {
+    companyName = normalizeWhitespace(links[0]?.[1] ?? "");
+    companyUrl = ensureHttps(links[0]?.[2] ?? null);
+    jobTitle = normalizeWhitespace(links[1]?.[1] ?? "");
+    jobUrl = ensureHttps(links[1]?.[2] ?? null) ?? "";
+
+    const secondLink = links[1];
+    const afterSecond = secondLink ? cleaned.slice((secondLink.index ?? 0) + secondLink[0].length) : "";
+    rest = afterSecond.trim();
+  } else {
+    if (!lastCompany) return { parsed: null, nextCompany: lastCompany };
+    companyName = lastCompany.name;
+    companyUrl = lastCompany.url;
+    jobTitle = normalizeWhitespace(links[0]?.[1] ?? "");
+    jobUrl = ensureHttps(links[0]?.[2] ?? null) ?? "";
+
+    const firstLink = links[0];
+    const afterFirst = firstLink ? cleaned.slice((firstLink.index ?? 0) + firstLink[0].length) : "";
+    rest = afterFirst.trim();
+  }
+
+  if (!companyName || !jobTitle || !jobUrl || !rest) {
+    return { parsed: null, nextCompany: lastCompany };
+  }
+
+  const tokens = rest.split(/\s+/).filter(Boolean);
+  if (tokens.length < 3) return { parsed: null, nextCompany: lastCompany };
+
+  const dateText = `${tokens[tokens.length - 2]} ${tokens[tokens.length - 1]}`.trim();
+  const tokensNoDate = tokens.slice(0, -2);
+
+  let workModel: string | null = null;
+  if (tokensNoDate.length >= 2 && tokensNoDate.slice(-2).join(" ") === "On Site") {
+    workModel = "On Site";
+    tokensNoDate.splice(-2, 2);
+  } else {
+    const wm = tokensNoDate[tokensNoDate.length - 1];
+    if (wm && ["Remote", "Hybrid", "Onsite", "On-Site"].includes(wm)) {
+      workModel = wm === "On-Site" ? "On Site" : wm;
+      tokensNoDate.pop();
+    }
+  }
+
+  const location = normalizeWhitespace(tokensNoDate.join(" "));
+  if (!location) return { parsed: null, nextCompany: lastCompany };
+
+  const parsed: JobrightLineParsed = {
+    companyName,
+    companyUrl,
+    jobTitle,
+    jobUrl,
+    location,
+    workModel,
+    dateText,
+  };
+
+  const nextCompany = { name: companyName, url: companyUrl };
+
+  return { parsed, nextCompany };
+}
+
+function parseJobrightReadme(markdown: string, source: Source, track: TrackId): JobRow[] {
+  const nowUtc = new Date();
+  const lines = markdown.split(/\r?\n/);
+
+  // Locate the section
+  const startIdx = lines.findIndex((l) => /^##\s+daily job list\s*$/i.test(l.trim()));
+  if (startIdx < 0) {
+    console.warn(`[warn] jobright: could not find "## Daily Job List" in ${source.readmeRawUrl ?? source.sourceUrl}`);
+    return [];
+  }
+
+  // Find the header (either a table header line starting with |, or a freeform header)
+  let headerIdx = -1;
+  for (let i = startIdx + 1; i < Math.min(lines.length, startIdx + 30); i += 1) {
+    const t = (lines[i] ?? "").trim();
+    if (!t) continue;
+
+    const lower = t.toLowerCase();
+    if (lower.includes("company") && lower.includes("job title") && lower.includes("location")) {
+      headerIdx = i;
+      break;
+    }
+  }
+  if (headerIdx < 0) headerIdx = startIdx;
+
+  const headerLine = (lines[headerIdx] ?? "").trim();
+  const isTable = headerLine.startsWith("|");
+
+  const rows: JobRow[] = [];
+  const sourceShort = jobrightSourceShort(source);
+
+  if (isTable) {
+    // Markdown table format
+    const headerCells = headerLine.split("|").slice(1, -1).map((c) => c.trim());
+    const colIndex: Record<string, number> = {};
+    for (let c = 0; c < headerCells.length; c += 1) {
+      colIndex[headerCells[c] ?? ""] = c;
+    }
+
+    // Skip separator line if present
+    let i = headerIdx + 1;
+    if (i < lines.length && (lines[i] ?? "").trim().startsWith("|---")) i += 1;
+
+    let lastCompany: { name: string; url: string | null } | null = null;
+
+    for (; i < lines.length; i += 1) {
+      const raw = lines[i] ?? "";
+      const line = raw.trim();
+      if (!line) continue;
+      if (line.startsWith("## ")) break;
+      if (!line.startsWith("|")) continue;
+
+      const cells = line.split("|").slice(1, -1).map((c) => c.trim());
+      if (cells.length < 3) continue;
+
+      const companyCell = cells[colIndex["Company"] ?? -1] ?? "";
+      const jobCell = cells[colIndex["Job Title"] ?? -1] ?? "";
+      const locationCell = cells[colIndex["Location"] ?? -1] ?? "";
+      const workModelCell = cells[colIndex["Work Model"] ?? -1] ?? "";
+      const dateCell = cells[colIndex["Date Posted"] ?? -1] ?? "";
+
+      let companyName: string | null = null;
+      let companyUrl: string | null = null;
+
+      const companyCellTrim = companyCell.replace(/^↳\s*/, "").trim();
+      if (companyCellTrim && companyCellTrim !== "↳") {
+        const parsedCompany = parseHtmlOrMarkdownLink(companyCellTrim);
+        companyName = parsedCompany.text || null;
+        companyUrl = ensureHttps(parsedCompany.url);
+        if (companyName) lastCompany = { name: companyName, url: companyUrl };
+      } else if (lastCompany) {
+        companyName = lastCompany.name;
+        companyUrl = lastCompany.url;
+      }
+
+      const parsedJob = parseHtmlOrMarkdownLink(jobCell.replace(/^↳\s*/, "").trim());
+      const jobTitle = parsedJob.text;
+      const jobUrl = ensureHttps(parsedJob.url) ?? "";
+
+      const location = normalizeWhitespace(locationCell);
+      const workModel = workModelCell ? normalizeWhitespace(workModelCell) : null;
+      const dateText = dateCell ? normalizeWhitespace(dateCell) : null;
+
+      if (!companyName || !jobTitle || !jobUrl || !location) continue;
+
+      const date = dateText ? parseJobrightMonthDay(dateText, nowUtc) : null;
+      const ageDays = date ? Math.max(0, Math.floor((nowUtc.getTime() - date.getTime()) / (24 * 60 * 60 * 1000))) : null;
+
+      const region: RegionId = isUsaLocation(location) ? "usa" : "intl";
+
+      rows.push({
+        companyName,
+        companyUrl,
+        position: jobTitle,
+        location,
+        workModel,
+        postingUrl: jobUrl,
+        ageDays,
+        sourceShort,
+        sourceUrl: source.sourceUrl,
+        sponsorship: "Unknown",
+        track,
+        region,
+      });
+    }
+
+    return rows;
+  }
+
+  // Freeform format
+  let lastCompany: { name: string; url: string | null } | null = null;
+
+  for (let i = headerIdx + 1; i < lines.length; i += 1) {
+    const rawLine = lines[i] ?? "";
+    const line = rawLine.trim();
+
+    if (!line) continue;
+    if (line.startsWith("## ")) break;
+    if (line.startsWith("---")) continue;
+
+    const { parsed, nextCompany } = parseJobrightLineFreeform(line, lastCompany);
+    if (!parsed) continue;
+    lastCompany = nextCompany;
+
+    const date = parsed.dateText ? parseJobrightMonthDay(parsed.dateText, nowUtc) : null;
+    const ageDays = date ? Math.max(0, Math.floor((nowUtc.getTime() - date.getTime()) / (24 * 60 * 60 * 1000))) : null;
+
+    const region: RegionId = isUsaLocation(parsed.location) ? "usa" : "intl";
 
     rows.push({
-      company,
-      position,
-      location,
-      salary,
-      posting,
-      age: `${ageDays}d`,
+      companyName: parsed.companyName,
+      companyUrl: parsed.companyUrl,
+      position: parsed.jobTitle,
+      location: parsed.location,
+      workModel: parsed.workModel,
+      postingUrl: parsed.jobUrl,
       ageDays,
-      jobUrl,
-      sourceCell,
-      category,
+      sourceShort,
+      sourceUrl: source.sourceUrl,
+      sponsorship: "Unknown",
+      track,
+      region,
     });
   }
 
   return rows;
 }
 
-async function fetchUpstreamMarkdown(
-  source: UpstreamSource,
-  region: Region
-): Promise<string> {
-  const url = `${source.baseUrl}/${region.upstreamPath}`;
+function loadSponsorCache(): SponsorCache {
   try {
-    const res = await fetch(url, {
-      // Helps some CDNs / proxies that dislike missing UA.
-      headers: { "user-agent": "ba-da-college-jobs-sync" },
-    });
-
-    if (!res.ok) {
-      throw new Error(
-        `Failed to fetch ${url}: ${res.status} ${res.statusText}`
-      );
-    }
-
-    return await res.text();
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : String(err);
-    throw new Error(`Fetch failed for ${url}: ${message}`);
+    if (!existsSync(SPONSOR_CACHE_PATH)) return {};
+    const raw = readFileSync(SPONSOR_CACHE_PATH, "utf-8");
+    const parsed = JSON.parse(raw) as SponsorCache;
+    if (!parsed || typeof parsed !== "object") return {};
+    return parsed;
+  } catch (err) {
+    console.warn(`[warn] failed to load sponsor cache: ${(err as Error).message}`);
+    return {};
   }
 }
 
-/**
- * Merge rows across upstream sources, deduping by jobUrl.
- *
- * If the same job appears multiple times:
- * - Prefer higher category priority (faang > quant > other)
- * - Prefer more recent (smaller ageDays)
- * - Prefer the one that has salary filled in
- */
-function mergeAndDedupe(rows: Row[]): RegionTables {
-  const byUrl = new Map<string, Row>();
+function pruneSponsorCache(cache: SponsorCache, keepDays: number): void {
+  const now = Date.now();
+  const keepMs = keepDays * 24 * 60 * 60 * 1000;
 
-  for (const row of rows) {
-    const existing = byUrl.get(row.jobUrl);
-    if (!existing) {
-      byUrl.set(row.jobUrl, row);
-      continue;
-    }
+  for (const [url, entry] of Object.entries(cache)) {
+    const ts = Date.parse(entry.checkedAtIso);
+    if (!Number.isFinite(ts)) continue;
+    if (now - ts > keepMs) delete cache[url];
+  }
+}
 
-    const existingPriority = CATEGORY_PRIORITY[existing.category] ?? 0;
-    const candidatePriority = CATEGORY_PRIORITY[row.category] ?? 0;
+function saveSponsorCache(cache: SponsorCache): void {
+  mkdirSync(CACHE_DIR, { recursive: true });
+  const json = JSON.stringify(cache, null, 2);
+  writeFileSync(SPONSOR_CACHE_PATH, json, { encoding: "utf-8" });
+}
 
-    if (candidatePriority > existingPriority) {
-      byUrl.set(row.jobUrl, row);
-      continue;
-    }
-    if (candidatePriority < existingPriority) {
-      continue;
-    }
+function parseJobrightSponsorship(html: string): { status: SponsorshipStatus; note?: string; isClosed?: boolean } {
+  const lower = html.toLowerCase();
 
-    // Same priority: choose the more recent posting.
-    if (row.ageDays < existing.ageDays) {
-      byUrl.set(row.jobUrl, row);
-      continue;
-    }
-    if (row.ageDays > existing.ageDays) {
-      continue;
-    }
+  const isClosed = lower.includes("this job has closed") || lower.includes("job is no longer available");
 
-    // Same age: prefer salary.
-    const existingHasSalary = (existing.salary || "").trim().length > 0;
-    const candidateHasSalary = (row.salary || "").trim().length > 0;
-    if (candidateHasSalary && !existingHasSalary) {
-      byUrl.set(row.jobUrl, row);
+  // Jobright pages often include these tokens
+  if (lower.includes("no h1b")) {
+    return { status: "No", note: "No H1B", isClosed };
+  }
+  if (lower.includes("h1b sponsor likely")) {
+    return { status: "Likely", note: "H1B Sponsor Likely", isClosed };
+  }
+  if (lower.includes("h1b sponsor")) {
+    return { status: "Likely", note: "H1B Sponsor", isClosed };
+  }
+
+  return { status: "Unknown", isClosed };
+}
+
+async function mapWithConcurrency<T>(
+  items: readonly T[],
+  concurrency: number,
+  fn: (item: T) => Promise<void>,
+): Promise<void> {
+  const queue = [...items];
+  let running = 0;
+
+  await new Promise<void>((resolve) => {
+    const launchNext = (): void => {
+      if (queue.length === 0 && running === 0) {
+        resolve();
+        return;
+      }
+      while (running < concurrency && queue.length > 0) {
+        const item = queue.shift()!;
+        running += 1;
+        fn(item)
+          .catch((err) => {
+            console.warn(`[warn] concurrency task failed: ${(err as Error).message}`);
+          })
+          .finally(() => {
+            running -= 1;
+            launchNext();
+          });
+      }
+    };
+    launchNext();
+  });
+}
+
+async function enrichSponsorship(rows: JobRow[], cache: SponsorCache): Promise<void> {
+  const jobrightRows = rows.filter((r) => r.postingUrl.includes("jobright.ai"));
+
+  const uniqueUrls: string[] = [];
+  const seen = new Set<string>();
+  for (const r of jobrightRows) {
+    const key = stripUrlQuery(r.postingUrl);
+    if (!seen.has(key)) {
+      seen.add(key);
+      uniqueUrls.push(key);
     }
   }
 
-  const tables: RegionTables = { faang: [], quant: [], other: [] };
+  // fetch only missing urls
+  const urlsToFetch = uniqueUrls.filter((u) => !cache[u]);
 
-  for (const row of byUrl.values()) {
-    tables[row.category].push(row);
+  if (urlsToFetch.length > 0) {
+    console.log(`[info] sponsorship: fetching ${urlsToFetch.length} jobright pages (concurrency=${SPONSOR_FETCH_CONCURRENCY})`);
   }
 
-  // Sort each table by recency (age ascending).
-  (Object.keys(tables) as Category[]).forEach((cat) => {
-    tables[cat].sort((a, b) => a.ageDays - b.ageDays);
+  await mapWithConcurrency(urlsToFetch, SPONSOR_FETCH_CONCURRENCY, async (url) => {
+    const html = await fetchTextOrNull(url, 20000);
+    const checkedAtIso = new Date().toISOString();
+
+    if (!html) {
+      cache[url] = { status: "Unknown", checkedAtIso };
+      return;
+    }
+
+    const parsed = parseJobrightSponsorship(html);
+    cache[url] = { status: parsed.status, note: parsed.note, isClosed: parsed.isClosed, checkedAtIso };
   });
 
-  return tables;
+  // Apply cache to rows
+  for (const r of jobrightRows) {
+    const key = stripUrlQuery(r.postingUrl);
+    const entry = cache[key];
+    if (!entry) continue;
+    r.sponsorship = entry.status;
+    r.sponsorshipNote = entry.note;
+    r.isClosed = entry.isClosed;
+  }
 }
 
-function renderMarkdownTable(rows: Row[]): string {
-  let table = `| ${HEADERS.join(" | ")} |\n`;
-  table += `|${HEADERS.map(() => "---").join("|")}|\n`;
+function formatUpdatedUtc(now: Date): string {
+  // "YYYY-MM-DD HH:mm"
+  const iso = now.toISOString(); // UTC
+  return iso.replace("T", " ").slice(0, 16);
+}
+
+function renderApplyCell(url: string): string {
+  const safeUrl = url.replace(/"/g, "%22");
+  return `<a href="${safeUrl}" target="_blank"><img src="${APPLY_IMG_URL}" width="90" alt="Apply"/></a>`;
+}
+
+function renderCompanyCell(companyName: string, companyUrl: string | null): string {
+  const name = escapePipes(companyName);
+  if (companyUrl) return `[${name}](${companyUrl})`;
+  return name;
+}
+
+function renderSourceCell(sourceShort: string, sourceUrl: string): string {
+  const text = escapePipes(sourceShort);
+  return `[${text}](${sourceUrl})`;
+}
+
+function renderSponsorshipCell(status: SponsorshipStatus, note?: string): string {
+  if (status === "Likely") return "Likely";
+  if (status === "No") return "No";
+  if (note) return `Unknown (${escapePipes(note)})`;
+  return "Unknown";
+}
+
+function sortRows(rows: JobRow[]): JobRow[] {
+  // Prioritize: sponsorship Likely first, then Unknown, then No; within that, newest first (age asc)
+  const rank = (s: SponsorshipStatus): number => {
+    if (s === "Likely") return 0;
+    if (s === "Unknown") return 1;
+    return 2;
+  };
+
+  return [...rows].sort((a, b) => {
+    const ra = rank(a.sponsorship);
+    const rb = rank(b.sponsorship);
+    if (ra !== rb) return ra - rb;
+
+    const aa = a.ageDays ?? 9999;
+    const ab = b.ageDays ?? 9999;
+    return aa - ab;
+  });
+}
+
+function dedupeRows(rows: JobRow[]): JobRow[] {
+  const byUrl = new Map<string, JobRow>();
 
   for (const r of rows) {
-    const cols = [
-      r.company,
-      r.position,
-      r.location,
-      r.salary || "",
-      r.posting,
-      r.age,
-      r.sourceCell,
-    ];
-    table += `| ${cols.join(" | ")} |\n`;
+    const key = stripUrlQuery(r.postingUrl);
+    const prev = byUrl.get(key);
+    if (!prev) {
+      byUrl.set(key, r);
+      continue;
+    }
+    // Prefer the row that has sponsorship info and/or smaller age
+    const prevScore = (prev.sponsorship !== "Unknown" ? 2 : 0) + (prev.ageDays !== null ? 1 : 0);
+    const curScore = (r.sponsorship !== "Unknown" ? 2 : 0) + (r.ageDays !== null ? 1 : 0);
+
+    if (curScore > prevScore) {
+      byUrl.set(key, r);
+      continue;
+    }
+    if (curScore === prevScore) {
+      const prevAge = prev.ageDays ?? 9999;
+      const curAge = r.ageDays ?? 9999;
+      if (curAge < prevAge) byUrl.set(key, r);
+    }
   }
 
-  return table;
+  // Secondary dedupe: same company+title+location
+  const byFingerprint = new Map<string, JobRow>();
+  for (const r of byUrl.values()) {
+    const fp = `${r.companyName.toLowerCase()}|${r.position.toLowerCase()}|${r.location.toLowerCase()}`;
+    const prev = byFingerprint.get(fp);
+    if (!prev) {
+      byFingerprint.set(fp, r);
+      continue;
+    }
+
+    // Prefer sponsorship Likely, then Unknown, then No
+    const rank = (s: SponsorshipStatus): number => (s === "Likely" ? 0 : s === "Unknown" ? 1 : 2);
+    const prevRank = rank(prev.sponsorship);
+    const curRank = rank(r.sponsorship);
+    if (curRank < prevRank) {
+      byFingerprint.set(fp, r);
+      continue;
+    }
+    if (curRank === prevRank) {
+      const prevAge = prev.ageDays ?? 9999;
+      const curAge = r.ageDays ?? 9999;
+      if (curAge < prevAge) byFingerprint.set(fp, r);
+    }
+  }
+
+  return Array.from(byFingerprint.values());
 }
 
-function renderRegionPage(
-  region: Region,
-  tables: RegionTables,
-  updated: string
-): string {
-  const total = tables.faang.length + tables.quant.length + tables.other.length;
+function renderMarkdownFile(track: TrackId, region: RegionId, rows: JobRow[], updatedUtc: string): string {
+  const trackMeta = TRACKS.find((t) => t.id === track);
+  const regionMeta = REGIONS.find((r) => r.id === region);
 
-  const header =
-    region.id === "usa"
-      ? `## 2026 USA Business Analyst & Data Analyst Full-Time (New Grad) Positions :mortar_board::eagle:\n`
-      : `## 2026 International Business Analyst & Data Analyst Full-Time (New Grad) Positions :mortar_board::globe_with_meridians:\n`;
+  const title = `# 2026 ${regionMeta?.label ?? region} Business Analyst & Data Analyst ${trackMeta?.label ?? track} Positions`;
 
-  return [
-    header,
-    `Updated: **${updated} (UTC)**`,
+  const total = rows.length;
+
+  const headerLines = [
+    title,
+    "",
+    `Updated: **${updatedUtc} (UTC)**`,
     "",
     `Total roles: **${total}**`,
     "",
-    "### FAANG+",
+    `Sponsorship column is a best-effort signal (parsed from Jobright H1B labels when available). Always verify on the official posting.`,
     "",
-    MARKERS.faang.start,
-    renderMarkdownTable(tables.faang),
-    MARKERS.faang.end,
-    "",
-    "### Quant",
-    "",
-    MARKERS.quant.start,
-    renderMarkdownTable(tables.quant),
-    MARKERS.quant.end,
-    "",
-    "### Other",
-    "",
-    MARKERS.other.start,
-    renderMarkdownTable(tables.other),
-    MARKERS.other.end,
-    "",
-    "<a name=\"bottom\"></a>",
-    "",
-  ].join("\n");
+    "<!-- TABLE_START -->",
+    "| Company | Position | Location | Work Model | Sponsorship | Posting | Age | Source |",
+    "|---|---|---|---|---|---|---|---|",
+  ];
+
+  const bodyLines = rows.map((r) => {
+    const company = renderCompanyCell(r.companyName, r.companyUrl);
+    const position = escapePipes(r.position);
+    const location = escapePipes(r.location);
+    const workModel = escapePipes(r.workModel ?? "");
+    const sponsorship = renderSponsorshipCell(r.sponsorship, r.sponsorshipNote);
+    const posting = renderApplyCell(r.postingUrl);
+    const age = r.ageDays === null ? "" : `${r.ageDays}d`;
+    const source = renderSourceCell(r.sourceShort, r.sourceUrl);
+
+    return `| ${company} | ${position} | ${location} | ${workModel} | ${sponsorship} | ${posting} | ${age} | ${source} |`;
+  });
+
+  const footerLines = ["<!-- TABLE_END -->", "", "<a name=\"bottom\"></a>", ""];
+
+  return [...headerLines, ...bodyLines, ...footerLines].join("\n");
 }
 
-function renderReadme(
-  usaCount: number,
-  intlCount: number,
-  updated: string
-): string {
-  const upstreamLines = UPSTREAM_SOURCES.map(
-    (s) => `- [${s.repo}](https://github.com/${s.repo})`
-  ).join("\n");
+function renderReadme(counts: Record<TrackId, Record<RegionId, number>>, updatedUtc: string): string {
+  const newGradUsa = counts.new_grad.usa;
+  const newGradIntl = counts.new_grad.intl;
+  const internUsa = counts.intern.usa;
+  const internIntl = counts.intern.intl;
 
   return [
-    "# 2026 Business Analyst & Data Analyst Full-Time (New Grad) Positions",
+    "# 2026 Business Analyst & Data Analyst Jobs (Full-Time + Internships)",
     "",
-    "This repository is an **auto-updating** list of Business Analyst / Data Analyst full-time roles (focused on new-grad/early-career postings).",
+    "This repository is an **auto-updating** list of BA/DA roles (full-time new grad + internships).",
     "",
-    "It syncs daily from the public upstream job lists and filters by title keywords:",
-    upstreamLines,
+    "- Data sources include SpeedyApply lists and Jobright BA/DA trackers.",
+    "- Sponsorship is shown when we can parse an **H1B signal** from Jobright job pages; otherwise it is marked **Unknown**.",
     "",
-    "If you want to adjust what counts as a BA/DA role, edit:",
-    "- `.github/scripts/src/config.ts` (INCLUDE_TITLE_PATTERNS / EXCLUDE_TITLE_PATTERNS)",
-    "",
-    `Last updated: **${updated} (UTC)**`,
+    `Last updated: **${updatedUtc} (UTC)**`,
     "",
     "## Quick Links",
     "",
-    `- USA: [NEW_GRAD_USA.md](/NEW_GRAD_USA.md) — **${usaCount}** roles`,
-    `- International: [NEW_GRAD_INTL.md](/NEW_GRAD_INTL.md) — **${intlCount}** roles`,
+    "### Full-Time (New Grad)",
+    `- USA: [NEW_GRAD_USA.md](/NEW_GRAD_USA.md) — **${newGradUsa}** roles`,
+    `- International: [NEW_GRAD_INTL.md](/NEW_GRAD_INTL.md) — **${newGradIntl}** roles`,
+    "",
+    "### Internships",
+    `- USA: [INTERN_USA.md](/INTERN_USA.md) — **${internUsa}** roles`,
+    `- International: [INTERN_INTL.md](/INTERN_INTL.md) — **${internIntl}** roles`,
+    "",
+    "## Update Schedule",
+    "",
+    "- GitHub Actions runs on a **6-hour schedule (UTC)** (best effort; GitHub may delay scheduled runs).",
+    "- **Forks do not run scheduled workflows by default** — enable Actions in your repo settings.",
     "",
     "## Notes / Limitations",
     "",
-    "- This list is only as comprehensive as the upstream sources; it will **miss** companies that are not present there.",
-    "- Title-based filtering can produce false positives/negatives. Expect to tune the keyword rules.",
-    "- GitHub disables scheduled workflows by default on forks — you must enable Actions in your repo settings for daily updates to run.",
+    "- You cannot get both **high recall** and **high precision** without manual review. Title filters are brittle.",
+    "- H1B sponsorship is **not guaranteed** by any tag. Treat it as a prioritization signal, not a promise.",
+    "- Always verify work authorization requirements on the official job posting.",
+    "",
+    "## Power-user options",
+    "",
+    "- Set `REQUIRE_SPONSORSHIP=true` in the workflow env to keep only rows marked `Likely`.",
     "",
   ].join("\n");
 }
 
-async function buildRegionTables(region: Region): Promise<RegionTables> {
-  const allRows: Row[] = [];
+async function collectRowsForTrack(track: TrackId): Promise<JobRow[]> {
+  const rows: JobRow[] = [];
 
-  for (const source of UPSTREAM_SOURCES) {
-    const md = await fetchUpstreamMarkdown(source, region);
+  for (const source of SOURCES) {
+    if (source.kind === "speedyapply") {
+      const base = source.rawBaseUrl;
+      const pathsForTrack = source.upstreamPathByTrackRegion?.[track];
+      if (!base || !pathsForTrack) continue;
 
-    const faangBlock = extractTableBlock(md, MARKERS.faang);
-    const quantBlock = extractTableBlock(md, MARKERS.quant);
-    const otherBlock = extractTableBlock(md, MARKERS.other);
+      for (const region of REGIONS) {
+        const relPath = pathsForTrack[region.id];
+        if (!relPath) continue;
 
-    allRows.push(...parseTableRows(faangBlock, source, region, "faang"));
-    allRows.push(...parseTableRows(quantBlock, source, region, "quant"));
-    allRows.push(...parseTableRows(otherBlock, source, region, "other"));
+        const url = `${base}/${relPath}`;
+        const md = await fetchTextOrNull(url, 25000);
+        if (!md) continue;
+
+        const parsed = parseSpeedyapplyMarkdown(md, source, track, region.id);
+        rows.push(...parsed);
+      }
+    } else if (source.kind === "jobright") {
+      if (source.track !== track) continue;
+      const url = source.readmeRawUrl;
+      if (!url) continue;
+
+      const md = await fetchTextOrNull(url, 25000);
+      if (!md) continue;
+
+      const parsed = parseJobrightReadme(md, source, track);
+      rows.push(...parsed);
+    }
   }
 
-  return mergeAndDedupe(allRows);
+  return rows;
 }
 
-async function main() {
-  const updated = new Date().toISOString().slice(0, 10);
+async function main(): Promise<void> {
+  const now = new Date();
+  const updatedUtc = formatUpdatedUtc(now);
 
-  const regionTables: Record<string, RegionTables> = {};
-  for (const region of REGIONS) {
-    regionTables[region.id] = await buildRegionTables(region);
+  const sponsorCache = loadSponsorCache();
+  pruneSponsorCache(sponsorCache, SPONSOR_CACHE_KEEP_DAYS);
+
+  // Collect rows for both tracks
+  const allRows: JobRow[] = [];
+
+  for (const trackMeta of TRACKS) {
+    console.log(`[info] collecting track=${trackMeta.id}`);
+    const trackRows = await collectRowsForTrack(trackMeta.id);
+
+    // Title filtering early (before sponsorship fetch)
+    const filtered = trackRows
+      .filter((r) => shouldKeepTitle(trackMeta.id, r.position))
+      .filter((r) => shouldKeepInternSanity(trackMeta.id, r.position))
+      .filter((r) => Boolean(r.postingUrl));
+
+    allRows.push(...filtered);
   }
 
-  // Write per-region pages.
-  for (const region of REGIONS) {
-    const outPath = path.join(__dirname, region.outputPath);
-    const page = renderRegionPage(region, regionTables[region.id], updated);
-    fs.writeFileSync(outPath, page, { encoding: "utf8" });
+  // Sponsorship enrichment (jobright only)
+  await enrichSponsorship(allRows, sponsorCache);
+  saveSponsorCache(sponsorCache);
+
+  // Optionally drop closed postings
+  const afterClosed = DROP_CLOSED ? allRows.filter((r) => !r.isClosed) : allRows;
+
+  // Optional: require sponsorship Likely
+  const afterSponsorshipFilter = REQUIRE_SPONSORSHIP ? afterClosed.filter((r) => r.sponsorship === "Likely") : afterClosed;
+
+  // Dedupe + sort per track/region and write files
+  const counts: Record<TrackId, Record<RegionId, number>> = {
+    new_grad: { usa: 0, intl: 0 },
+    intern: { usa: 0, intl: 0 },
+  };
+
+  for (const trackMeta of TRACKS) {
+    for (const regionMeta of REGIONS) {
+      const subset = afterSponsorshipFilter.filter((r) => r.track === trackMeta.id && r.region === regionMeta.id);
+      const deduped = dedupeRows(subset);
+      const sorted = sortRows(deduped);
+
+      counts[trackMeta.id][regionMeta.id] = sorted.length;
+
+      const content = renderMarkdownFile(trackMeta.id, regionMeta.id, sorted, updatedUtc);
+
+      const outputName = trackMeta.outputByRegion[regionMeta.id];
+      const outPath = path.join(process.cwd(), "..", "..", outputName); // repo root (workflow runs in .github/scripts)
+
+      console.log(`[info] writing ${outputName} (${sorted.length} rows)`);
+      writeFileSync(outPath, content, { encoding: "utf-8" });
+    }
   }
 
-  // Write README.
-  const usaTables = regionTables["usa"];
-  const intlTables = regionTables["intl"];
+  // README
+  const readmeContent = renderReadme(counts, updatedUtc);
+  const readmePath = path.join(process.cwd(), "..", "..", "README.md");
+  writeFileSync(readmePath, readmeContent, { encoding: "utf-8" });
 
-  const usaCount =
-    (usaTables?.faang.length ?? 0) +
-    (usaTables?.quant.length ?? 0) +
-    (usaTables?.other.length ?? 0);
-
-  const intlCount =
-    (intlTables?.faang.length ?? 0) +
-    (intlTables?.quant.length ?? 0) +
-    (intlTables?.other.length ?? 0);
-
-  const readmePath = path.join(__dirname, README_PATH);
-  fs.writeFileSync(readmePath, renderReadme(usaCount, intlCount, updated), {
-    encoding: "utf8",
-  });
+  console.log("[done] job list update complete");
 }
 
-main().catch((err: unknown) => {
-  const message = err instanceof Error ? err.message : String(err);
-  console.error(message);
-  process.exitCode = 1;
-});
+void main();
