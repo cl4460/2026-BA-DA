@@ -3,15 +3,14 @@ import path from "path";
 import {
   SOURCES,
   TRACKS,
-  REGIONS,
   INCLUDE_TITLE_PATTERNS,
   EXCLUDE_TITLE_PATTERNS,
   EXCLUDE_NEW_GRAD_ONLY_PATTERNS,
   INTERN_TITLE_PATTERNS,
-  USA_LOCATION_PATTERNS,
-  type RegionId,
+  EXPLICIT_NON_US_LOCATION_PATTERNS,
   type TrackId,
   type Source,
+  type SourceKind,
 } from "./config";
 
 type SponsorshipStatus = "Likely" | "No" | "Unknown";
@@ -33,6 +32,9 @@ type JobRow = {
   workModel: string | null;
   postingUrl: string;
   ageDays: number | null; // null when unknown
+
+  sourceId: string;
+  sourceKind: SourceKind;
   sourceShort: string;
   sourceUrl: string;
 
@@ -41,7 +43,6 @@ type JobRow = {
   isClosed?: boolean;
 
   track: TrackId;
-  region: RegionId;
 };
 
 const APPLY_IMG_URL = "https://i.imgur.com/JpkfjIq.png";
@@ -54,6 +55,10 @@ const REQUIRE_SPONSORSHIP = (process.env.REQUIRE_SPONSORSHIP ?? "").toLowerCase(
 
 // When true, drop rows where job posting is detected closed
 const DROP_CLOSED = (process.env.DROP_CLOSED ?? "true").toLowerCase() !== "false";
+
+// If true, ALSO enforce INCLUDE_TITLE_PATTERNS for Jobright sources.
+// Default is false (high recall). Turning this on will reduce counts a lot.
+const STRICT_JOBRIGHT_TITLE_FILTER = (process.env.STRICT_JOBRIGHT_TITLE_FILTER ?? "").toLowerCase() === "true";
 
 // Limit parallel HTTP requests when checking sponsorship (avoid being rate-limited)
 const SPONSOR_FETCH_CONCURRENCY = Number(process.env.SPONSOR_FETCH_CONCURRENCY ?? "6") || 6;
@@ -103,10 +108,14 @@ function parseHtmlOrMarkdownLink(cell: string): { text: string; url: string | nu
     return { text: normalizeWhitespace(inner) || normalizeWhitespace(trimmed), url };
   }
 
-  // Markdown: [Text](url)
-  const mdMatch = trimmed.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-  if (mdMatch) {
-    return { text: normalizeWhitespace(mdMatch[1] ?? ""), url: ensureHttps(mdMatch[2]?.trim() ?? null) };
+  // Markdown: cell may contain wrappers like **[Text](url)**.
+  // So we search for a markdown link ANYWHERE in the cell.
+  const mdAnywhere = trimmed.match(/\[([^\]]+)\]\(([^)]+)\)/);
+  if (mdAnywhere) {
+    return {
+      text: normalizeWhitespace(mdAnywhere[1] ?? ""),
+      url: ensureHttps((mdAnywhere[2] ?? "").trim() || null),
+    };
   }
 
   return { text: normalizeWhitespace(trimmed), url: null };
@@ -136,24 +145,28 @@ function parseAgeToDays(ageCell: string): number | null {
   return null;
 }
 
-function isUsaLocation(location: string): boolean {
-  const loc = location.trim();
-  if (!loc) return false;
-  return USA_LOCATION_PATTERNS.some((re) => re.test(loc));
-}
-
 function matchesAny(patterns: readonly RegExp[], text: string): boolean {
   return patterns.some((re) => re.test(text));
 }
 
-function shouldKeepTitle(track: TrackId, title: string): boolean {
+function isExplicitNonUsLocation(location: string): boolean {
+  const loc = location.trim();
+  if (!loc) return false; // keep unknown
+  return EXPLICIT_NON_US_LOCATION_PATTERNS.some((re) => re.test(loc));
+}
+
+function shouldKeepTitle(track: TrackId, title: string, sourceKind: SourceKind): boolean {
   const t = title.trim();
-  if (!matchesAny(INCLUDE_TITLE_PATTERNS, t)) return false;
+
+  // Always exclude obvious non-target buckets
   if (matchesAny(EXCLUDE_TITLE_PATTERNS, t)) return false;
 
   if (track === "new_grad" && matchesAny(EXCLUDE_NEW_GRAD_ONLY_PATTERNS, t)) return false;
 
-  return true;
+  // Jobright repos are already role-curated; filtering again kills recall.
+  if (sourceKind === "jobright" && !STRICT_JOBRIGHT_TITLE_FILTER) return true;
+
+  return matchesAny(INCLUDE_TITLE_PATTERNS, t);
 }
 
 function shouldKeepInternSanity(track: TrackId, title: string): boolean {
@@ -193,7 +206,7 @@ async function fetchTextOrNull(url: string, timeoutMs = 20000): Promise<string |
   }
 }
 
-function parseSpeedyapplyMarkdown(markdown: string, source: Source, track: TrackId, region: RegionId): JobRow[] {
+function parseSpeedyapplyMarkdown(markdown: string, source: Source, track: TrackId): JobRow[] {
   const lines = markdown.split(/\r?\n/);
 
   let headerCells: string[] | null = null;
@@ -212,7 +225,10 @@ function parseSpeedyapplyMarkdown(markdown: string, source: Source, track: Track
       trimmed.toLowerCase().includes("position") &&
       trimmed.toLowerCase().includes("location")
     ) {
-      const cells = trimmed.split("|").slice(1, -1).map((c) => c.trim());
+      const cells = trimmed
+        .split("|")
+        .slice(1, -1)
+        .map((c) => c.trim());
       headerCells = cells;
 
       colIndex = {};
@@ -227,7 +243,10 @@ function parseSpeedyapplyMarkdown(markdown: string, source: Source, track: Track
 
     // Parse rows after a detected header
     if (headerCells && trimmed.startsWith("|")) {
-      const cells = trimmed.split("|").slice(1, -1).map((c) => c.trim());
+      const cells = trimmed
+        .split("|")
+        .slice(1, -1)
+        .map((c) => c.trim());
 
       const companyCell = cells[colIndex["Company"] ?? -1] ?? "";
       const position = cells[colIndex["Position"] ?? -1] ?? "";
@@ -242,12 +261,11 @@ function parseSpeedyapplyMarkdown(markdown: string, source: Source, track: Track
       const companyUrl = ensureHttps(companyUrlRaw);
 
       const postingUrl = parseHrefFromHtmlAnchor(postingCell);
+      if (!postingUrl) continue;
 
       const ageDays = parseAgeToDays(ageCell);
 
       const { text: sourceShort, url: sourceUrlRaw } = parseHtmlOrMarkdownLink(sourceCell);
-
-      if (!postingUrl) continue;
 
       rows.push({
         companyName: companyName || "Unknown",
@@ -257,11 +275,14 @@ function parseSpeedyapplyMarkdown(markdown: string, source: Source, track: Track
         workModel: null,
         postingUrl,
         ageDays,
+
+        sourceId: source.id,
+        sourceKind: source.kind,
         sourceShort: sourceShort || source.name,
         sourceUrl: ensureHttps(sourceUrlRaw) || source.sourceUrl,
+
         sponsorship: "Unknown",
         track,
-        region,
       });
 
       continue;
@@ -416,21 +437,21 @@ function parseJobrightReadme(markdown: string, source: Source, track: TrackId): 
   const nowUtc = new Date();
   const lines = markdown.split(/\r?\n/);
 
-  // Locate the section
-  const startIdx = lines.findIndex((l) => /^##\s+daily job list\s*$/i.test(l.trim()));
+  // Locate the section (Jobright uses emojis on this header; do not require end-of-line match)
+  const startIdx = lines.findIndex((l) => /^##\s+daily job list\b/i.test(l.trim()));
   if (startIdx < 0) {
-    console.warn(`[warn] jobright: could not find "## Daily Job List" in ${source.readmeRawUrl ?? source.sourceUrl}`);
+    console.warn(`[warn] jobright: could not find a "Daily Job List" section in ${source.readmeRawUrl ?? source.sourceUrl}`);
     return [];
   }
 
   // Find the header (either a table header line starting with |, or a freeform header)
   let headerIdx = -1;
-  for (let i = startIdx + 1; i < Math.min(lines.length, startIdx + 30); i += 1) {
+  for (let i = startIdx + 1; i < Math.min(lines.length, startIdx + 60); i += 1) {
     const t = (lines[i] ?? "").trim();
     if (!t) continue;
 
     const lower = t.toLowerCase();
-    if (lower.includes("company") && lower.includes("job title") && lower.includes("location")) {
+    if (lower.includes("company") && lower.includes("job") && lower.includes("location")) {
       headerIdx = i;
       break;
     }
@@ -444,8 +465,10 @@ function parseJobrightReadme(markdown: string, source: Source, track: TrackId): 
   const sourceShort = jobrightSourceShort(source);
 
   if (isTable) {
-    // Markdown table format
-    const headerCells = headerLine.split("|").slice(1, -1).map((c) => c.trim());
+    const headerCells = headerLine
+      .split("|")
+      .slice(1, -1)
+      .map((c) => c.trim());
     const colIndex: Record<string, number> = {};
     for (let c = 0; c < headerCells.length; c += 1) {
       colIndex[headerCells[c] ?? ""] = c;
@@ -464,11 +487,14 @@ function parseJobrightReadme(markdown: string, source: Source, track: TrackId): 
       if (line.startsWith("## ")) break;
       if (!line.startsWith("|")) continue;
 
-      const cells = line.split("|").slice(1, -1).map((c) => c.trim());
+      const cells = line
+        .split("|")
+        .slice(1, -1)
+        .map((c) => c.trim());
       if (cells.length < 3) continue;
 
       const companyCell = cells[colIndex["Company"] ?? -1] ?? "";
-      const jobCell = cells[colIndex["Job Title"] ?? -1] ?? "";
+      const jobCell = cells[colIndex["Job Title"] ?? colIndex["Job"] ?? -1] ?? "";
       const locationCell = cells[colIndex["Location"] ?? -1] ?? "";
       const workModelCell = cells[colIndex["Work Model"] ?? -1] ?? "";
       const dateCell = cells[colIndex["Date Posted"] ?? -1] ?? "";
@@ -492,15 +518,15 @@ function parseJobrightReadme(markdown: string, source: Source, track: TrackId): 
       const jobUrl = ensureHttps(parsedJob.url) ?? "";
 
       const location = normalizeWhitespace(locationCell);
+      if (!location || isExplicitNonUsLocation(location)) continue;
+
       const workModel = workModelCell ? normalizeWhitespace(workModelCell) : null;
       const dateText = dateCell ? normalizeWhitespace(dateCell) : null;
 
-      if (!companyName || !jobTitle || !jobUrl || !location) continue;
+      if (!companyName || !jobTitle || !jobUrl) continue;
 
       const date = dateText ? parseJobrightMonthDay(dateText, nowUtc) : null;
       const ageDays = date ? Math.max(0, Math.floor((nowUtc.getTime() - date.getTime()) / (24 * 60 * 60 * 1000))) : null;
-
-      const region: RegionId = isUsaLocation(location) ? "usa" : "intl";
 
       rows.push({
         companyName,
@@ -510,18 +536,21 @@ function parseJobrightReadme(markdown: string, source: Source, track: TrackId): 
         workModel,
         postingUrl: jobUrl,
         ageDays,
+
+        sourceId: source.id,
+        sourceKind: source.kind,
         sourceShort,
         sourceUrl: source.sourceUrl,
+
         sponsorship: "Unknown",
         track,
-        region,
       });
     }
 
     return rows;
   }
 
-  // Freeform format
+  // Freeform format (rare, but keep for robustness)
   let lastCompany: { name: string; url: string | null } | null = null;
 
   for (let i = headerIdx + 1; i < lines.length; i += 1) {
@@ -536,10 +565,10 @@ function parseJobrightReadme(markdown: string, source: Source, track: TrackId): 
     if (!parsed) continue;
     lastCompany = nextCompany;
 
+    if (isExplicitNonUsLocation(parsed.location)) continue;
+
     const date = parsed.dateText ? parseJobrightMonthDay(parsed.dateText, nowUtc) : null;
     const ageDays = date ? Math.max(0, Math.floor((nowUtc.getTime() - date.getTime()) / (24 * 60 * 60 * 1000))) : null;
-
-    const region: RegionId = isUsaLocation(parsed.location) ? "usa" : "intl";
 
     rows.push({
       companyName: parsed.companyName,
@@ -549,11 +578,14 @@ function parseJobrightReadme(markdown: string, source: Source, track: TrackId): 
       workModel: parsed.workModel,
       postingUrl: parsed.jobUrl,
       ageDays,
+
+      sourceId: source.id,
+      sourceKind: source.kind,
       sourceShort,
       sourceUrl: source.sourceUrl,
+
       sponsorship: "Unknown",
       track,
-      region,
     });
   }
 
@@ -657,7 +689,9 @@ async function enrichSponsorship(rows: JobRow[], cache: SponsorCache): Promise<v
   const urlsToFetch = uniqueUrls.filter((u) => !cache[u]);
 
   if (urlsToFetch.length > 0) {
-    console.log(`[info] sponsorship: fetching ${urlsToFetch.length} jobright pages (concurrency=${SPONSOR_FETCH_CONCURRENCY})`);
+    console.log(
+      `[info] sponsorship: fetching ${urlsToFetch.length} jobright pages (concurrency=${SPONSOR_FETCH_CONCURRENCY})`,
+    );
   }
 
   await mapWithConcurrency(urlsToFetch, SPONSOR_FETCH_CONCURRENCY, async (url) => {
@@ -785,11 +819,9 @@ function dedupeRows(rows: JobRow[]): JobRow[] {
   return Array.from(byFingerprint.values());
 }
 
-function renderMarkdownFile(track: TrackId, region: RegionId, rows: JobRow[], updatedUtc: string): string {
+function renderMarkdownFile(track: TrackId, rows: JobRow[], updatedUtc: string): string {
   const trackMeta = TRACKS.find((t) => t.id === track);
-  const regionMeta = REGIONS.find((r) => r.id === region);
-
-  const title = `# 2026 ${regionMeta?.label ?? region} Business Analyst & Data Analyst ${trackMeta?.label ?? track} Positions`;
+  const title = `# 2026 USA Business Analyst & Data Analyst ${trackMeta?.label ?? track} Positions`;
 
   const total = rows.length;
 
@@ -800,7 +832,7 @@ function renderMarkdownFile(track: TrackId, region: RegionId, rows: JobRow[], up
     "",
     `Total roles: **${total}**`,
     "",
-    `Sponsorship column is a best-effort signal (parsed from Jobright H1B labels when available). Always verify on the official posting.`,
+    "Sponsorship column is a best-effort signal (parsed from Jobright H1B labels when available). Always verify on the official posting.",
     "",
     "<!-- TABLE_START -->",
     "| Company | Position | Location | Work Model | Sponsorship | Posting | Age | Source |",
@@ -820,51 +852,46 @@ function renderMarkdownFile(track: TrackId, region: RegionId, rows: JobRow[], up
     return `| ${company} | ${position} | ${location} | ${workModel} | ${sponsorship} | ${posting} | ${age} | ${source} |`;
   });
 
-  const footerLines = ["<!-- TABLE_END -->", "", "<a name=\"bottom\"></a>", ""];
+  const footerLines = ["<!-- TABLE_END -->", "", '<a name="bottom"></a>', ""];
 
   return [...headerLines, ...bodyLines, ...footerLines].join("\n");
 }
 
-function renderReadme(counts: Record<TrackId, Record<RegionId, number>>, updatedUtc: string): string {
-  const newGradUsa = counts.new_grad.usa;
-  const newGradIntl = counts.new_grad.intl;
-  const internUsa = counts.intern.usa;
-  const internIntl = counts.intern.intl;
-
+function renderReadme(counts: Record<TrackId, number>, updatedUtc: string): string {
   return [
-    "# 2026 Business Analyst & Data Analyst Jobs (Full-Time + Internships)",
+    "# 2026 USA Business Analyst & Data Analyst Jobs (Full-Time + Internships)",
     "",
-    "This repository is an **auto-updating** list of BA/DA roles (full-time new grad + internships).",
+    "This repository is an **auto-updating** list of BA/DA roles in the **United States only** (full-time new grad + internships).",
     "",
-    "- Data sources include SpeedyApply lists and Jobright BA/DA trackers.",
-    "- Sponsorship is shown when we can parse an **H1B signal** from Jobright job pages; otherwise it is marked **Unknown**.",
+    "**Key data sources:**",
+    "- Jobright BA/DA trackers (high recall; README typically shows the last ~7 days).",
+    "- SpeedyApply job lists (supplemental).",
     "",
     `Last updated: **${updatedUtc} (UTC)**`,
     "",
     "## Quick Links",
     "",
     "### Full-Time (New Grad)",
-    `- USA: [NEW_GRAD_USA.md](/NEW_GRAD_USA.md) — **${newGradUsa}** roles`,
-    `- International: [NEW_GRAD_INTL.md](/NEW_GRAD_INTL.md) — **${newGradIntl}** roles`,
+    `- [NEW_GRAD_USA.md](/NEW_GRAD_USA.md) — **${counts.new_grad}** roles`,
     "",
     "### Internships",
-    `- USA: [INTERN_USA.md](/INTERN_USA.md) — **${internUsa}** roles`,
-    `- International: [INTERN_INTL.md](/INTERN_INTL.md) — **${internIntl}** roles`,
+    `- [INTERN_USA.md](/INTERN_USA.md) — **${counts.intern}** roles`,
     "",
     "## Update Schedule",
     "",
     "- GitHub Actions runs on a **6-hour schedule (UTC)** (best effort; GitHub may delay scheduled runs).",
-    "- **Forks do not run scheduled workflows by default** — enable Actions in your repo settings.",
+    "- Forks do not run scheduled workflows by default — you must enable Actions in your repo settings.",
     "",
     "## Notes / Limitations",
     "",
-    "- You cannot get both **high recall** and **high precision** without manual review. Title filters are brittle.",
-    "- H1B sponsorship is **not guaranteed** by any tag. Treat it as a prioritization signal, not a promise.",
+    "- Sponsorship is **not guaranteed** by any tag. Treat it as a prioritization signal, not a promise.",
+    "- We filter out explicit non-US locations, but location strings are messy; you should still sanity-check.",
     "- Always verify work authorization requirements on the official job posting.",
     "",
-    "## Power-user options",
+    "## Power-user options (workflow env vars)",
     "",
-    "- Set `REQUIRE_SPONSORSHIP=true` in the workflow env to keep only rows marked `Likely`.",
+    "- `REQUIRE_SPONSORSHIP=true` : keep only rows marked `Likely`.",
+    "- `STRICT_JOBRIGHT_TITLE_FILTER=true` : also apply title regex filtering to Jobright sources (reduces counts a lot).",
     "",
   ].join("\n");
 }
@@ -875,20 +902,14 @@ async function collectRowsForTrack(track: TrackId): Promise<JobRow[]> {
   for (const source of SOURCES) {
     if (source.kind === "speedyapply") {
       const base = source.rawBaseUrl;
-      const pathsForTrack = source.upstreamPathByTrackRegion?.[track];
-      if (!base || !pathsForTrack) continue;
+      const relPath = source.upstreamPathByTrack?.[track];
+      if (!base || !relPath) continue;
 
-      for (const region of REGIONS) {
-        const relPath = pathsForTrack[region.id];
-        if (!relPath) continue;
+      const url = `${base}/${relPath}`;
+      const md = await fetchTextOrNull(url, 25000);
+      if (!md) continue;
 
-        const url = `${base}/${relPath}`;
-        const md = await fetchTextOrNull(url, 25000);
-        if (!md) continue;
-
-        const parsed = parseSpeedyapplyMarkdown(md, source, track, region.id);
-        rows.push(...parsed);
-      }
+      rows.push(...parseSpeedyapplyMarkdown(md, source, track));
     } else if (source.kind === "jobright") {
       if (source.track !== track) continue;
       const url = source.readmeRawUrl;
@@ -897,8 +918,7 @@ async function collectRowsForTrack(track: TrackId): Promise<JobRow[]> {
       const md = await fetchTextOrNull(url, 25000);
       if (!md) continue;
 
-      const parsed = parseJobrightReadme(md, source, track);
-      rows.push(...parsed);
+      rows.push(...parseJobrightReadme(md, source, track));
     }
   }
 
@@ -912,7 +932,6 @@ async function main(): Promise<void> {
   const sponsorCache = loadSponsorCache();
   pruneSponsorCache(sponsorCache, SPONSOR_CACHE_KEEP_DAYS);
 
-  // Collect rows for both tracks
   const allRows: JobRow[] = [];
 
   for (const trackMeta of TRACKS) {
@@ -921,7 +940,7 @@ async function main(): Promise<void> {
 
     // Title filtering early (before sponsorship fetch)
     const filtered = trackRows
-      .filter((r) => shouldKeepTitle(trackMeta.id, r.position))
+      .filter((r) => shouldKeepTitle(trackMeta.id, r.position, r.sourceKind))
       .filter((r) => shouldKeepInternSanity(trackMeta.id, r.position))
       .filter((r) => Boolean(r.postingUrl));
 
@@ -938,28 +957,23 @@ async function main(): Promise<void> {
   // Optional: require sponsorship Likely
   const afterSponsorshipFilter = REQUIRE_SPONSORSHIP ? afterClosed.filter((r) => r.sponsorship === "Likely") : afterClosed;
 
-  // Dedupe + sort per track/region and write files
-  const counts: Record<TrackId, Record<RegionId, number>> = {
-    new_grad: { usa: 0, intl: 0 },
-    intern: { usa: 0, intl: 0 },
+  const counts: Record<TrackId, number> = {
+    new_grad: 0,
+    intern: 0,
   };
 
   for (const trackMeta of TRACKS) {
-    for (const regionMeta of REGIONS) {
-      const subset = afterSponsorshipFilter.filter((r) => r.track === trackMeta.id && r.region === regionMeta.id);
-      const deduped = dedupeRows(subset);
-      const sorted = sortRows(deduped);
+    const subset = afterSponsorshipFilter.filter((r) => r.track === trackMeta.id);
+    const deduped = dedupeRows(subset);
+    const sorted = sortRows(deduped);
 
-      counts[trackMeta.id][regionMeta.id] = sorted.length;
+    counts[trackMeta.id] = sorted.length;
 
-      const content = renderMarkdownFile(trackMeta.id, regionMeta.id, sorted, updatedUtc);
+    const content = renderMarkdownFile(trackMeta.id, sorted, updatedUtc);
+    const outPath = path.join(process.cwd(), "..", "..", trackMeta.output); // repo root
 
-      const outputName = trackMeta.outputByRegion[regionMeta.id];
-      const outPath = path.join(process.cwd(), "..", "..", outputName); // repo root (workflow runs in .github/scripts)
-
-      console.log(`[info] writing ${outputName} (${sorted.length} rows)`);
-      writeFileSync(outPath, content, { encoding: "utf-8" });
-    }
+    console.log(`[info] writing ${trackMeta.output} (${sorted.length} rows)`);
+    writeFileSync(outPath, content, { encoding: "utf-8" });
   }
 
   // README

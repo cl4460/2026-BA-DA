@@ -1,36 +1,27 @@
 // Central configuration for the job list generator.
-// Keep this file small and explicit — anything fuzzy will reduce precision.
+//
+// This fork is intentionally **USA-only** and focused on:
+// - Business Analyst (BA)
+// - Data Analyst / Data Analysis (DA)
+//
+// IMPORTANT:
+// - Upstream sources have inconsistent formatting.
+// - If you over-filter titles or over-strictly classify locations, your list will look "too small".
 
-export type RegionId = "usa" | "intl";
 export type TrackId = "new_grad" | "intern";
-
-export const REGIONS = [
-  { id: "usa", label: "USA" },
-  { id: "intl", label: "International" },
-] as const satisfies ReadonlyArray<{ id: RegionId; label: string }>;
 
 export const TRACKS = [
   {
     id: "new_grad",
     label: "Full-Time (New Grad)",
-    outputByRegion: {
-      usa: "NEW_GRAD_USA.md",
-      intl: "NEW_GRAD_INTL.md",
-    },
+    output: "NEW_GRAD_USA.md",
   },
   {
     id: "intern",
     label: "Internships",
-    outputByRegion: {
-      usa: "INTERN_USA.md",
-      intl: "INTERN_INTL.md",
-    },
+    output: "INTERN_USA.md",
   },
-] as const satisfies ReadonlyArray<{
-  id: TrackId;
-  label: string;
-  outputByRegion: Record<RegionId, string>;
-}>;
+] as const satisfies ReadonlyArray<{ id: TrackId; label: string; output: string }>;
 
 export type SourceKind = "speedyapply" | "jobright";
 
@@ -40,9 +31,9 @@ export type Source = {
   kind: SourceKind;
   sourceUrl: string;
 
-  // speedyapply: fetch markdown tables from upstream files
+  // speedyapply: fetch markdown tables from upstream USA files
   rawBaseUrl?: string;
-  upstreamPathByTrackRegion?: Partial<Record<TrackId, Partial<Record<RegionId, string>>>>;
+  upstreamPathByTrack?: Partial<Record<TrackId, string>>;
 
   // jobright: fetch README.md from upstream repo
   readmeRawUrl?: string;
@@ -50,16 +41,16 @@ export type Source = {
 };
 
 export const SOURCES: readonly Source[] = [
-  // Original upstream sources (good coverage for "tech-ish" roles, but BA/DA coverage is limited)
+  // SpeedyApply sources (already split by USA/INTL upstream). Good as supplemental coverage.
   {
     id: "speedy_ai",
     name: "SpeedyApply AI",
     kind: "speedyapply",
     sourceUrl: "https://github.com/speedyapply/2026-AI-College-Jobs",
     rawBaseUrl: "https://raw.githubusercontent.com/speedyapply/2026-AI-College-Jobs/main",
-    upstreamPathByTrackRegion: {
-      new_grad: { usa: "NEW_GRAD_USA.md", intl: "NEW_GRAD_INTL.md" },
-      intern: { usa: "INTERN_USA.md", intl: "INTERN_INTL.md" },
+    upstreamPathByTrack: {
+      new_grad: "NEW_GRAD_USA.md",
+      intern: "INTERN_USA.md",
     },
   },
   {
@@ -68,13 +59,13 @@ export const SOURCES: readonly Source[] = [
     kind: "speedyapply",
     sourceUrl: "https://github.com/speedyapply/2026-SWE-College-Jobs",
     rawBaseUrl: "https://raw.githubusercontent.com/speedyapply/2026-SWE-College-Jobs/main",
-    upstreamPathByTrackRegion: {
-      new_grad: { usa: "NEW_GRAD_USA.md", intl: "NEW_GRAD_INTL.md" },
-      intern: { usa: "INTERN_USA.md", intl: "INTERN_INTL.md" },
+    upstreamPathByTrack: {
+      new_grad: "NEW_GRAD_USA.md",
+      intern: "INTERN_USA.md",
     },
   },
 
-  // Additional high-recall sources for BA/DA (updated frequently, includes H1B signal on job pages)
+  // Jobright BA/DA repos (high recall). NOTE: their README is only last ~7 days, but updated daily.
   {
     id: "jr_da_ng",
     name: "Jobright Data Analysis (New Grad)",
@@ -109,38 +100,67 @@ export const SOURCES: readonly Source[] = [
   },
 ] as const;
 
-// ===== Role filters (precision vs recall trade-offs) =====
-// Keep the include list narrow to avoid pulling in generic "Analyst" roles that are not BA/DA.
-// If you need higher recall, expand INCLUDE_TITLE_PATTERNS carefully.
+// ===== Role filters =====
+//
+// We ONLY apply title filters to NON-Jobright sources.
+// Reason: Jobright repos are already "role-curated"; filtering again is what causes the huge drop in counts.
+//
+// For SpeedyApply (and other future sources) we still need some filtering, otherwise you'd pull in random SWE roles.
 
 export const INCLUDE_TITLE_PATTERNS: readonly RegExp[] = [
+  // core
+  /\bbusiness\s+(systems?\s+)?analyst\b/i,
   /\bdata\s+analyst\b/i,
-  /\bdata\s+analytics\s+analyst\b/i,
-  /\bbusiness\s+analyst\b/i,
-  /\bbusiness\s+data\s+analyst\b/i,
-  /\bbusiness\s+systems?\s+analyst\b/i,
+
+  // common BA variants
+  /\bbusiness\s+process\s+analyst\b/i,
+  /\bbusiness\s+operations?\s+analyst\b/i,
+  /\bbusiness\s+strategy\s+analyst\b/i,
+  /\bbusiness\s+insights?\s+analyst\b/i,
   /\bbusiness\s+intelligence\b/i,
   /\bbi\s+analyst\b/i,
-  /\bdata\s+governance\s+analyst\b/i,
+
+  // DA / analytics variants
+  /\bdata\s+analytics\s+analyst\b/i,
+  /\banalytics\s+analyst\b/i,
+  /\binsights?\s+analyst\b/i,
+  /\breporting\s+analyst\b/i,
+  /\bperformance\s+analyst\b/i,
   /\bdata\s+quality\s+analyst\b/i,
+  /\bdata\s+governance\s+analyst\b/i,
 ];
 
-// Roles to hard-exclude (applied to both tracks)
+// Hard excludes (applied to ALL sources)
 export const EXCLUDE_TITLE_PATTERNS: readonly RegExp[] = [
+  // user explicitly doesn't want quant buckets showing up
   /\bquant\b/i,
   /\bquantitative\b/i,
   /\btrading\b/i,
   /\bprop(\s|-)?trading\b/i,
   /\bhigh(\s|-)?frequency\b/i,
+
+  // keep the scope BA/DA ("Data Analysis" repos can include many data scientist roles)
+  /\bdata\s+scientist\b/i,
+  /\bdata\s+science\b/i,
+  /\bmachine\s+learning\b/i,
+  /\bdeep\s+learning\b/i,
+  /\bcomputer\s+vision\b/i,
+  /\bnlp\b/i,
+  /\bllm\b/i,
+  /\bgen\s?ai\b/i,
+  /\bartificial\s+intelligence\b/i,
+  /\bpost[-\s]?doc\b/i,
+  /\bpostdoctoral\b/i,
+  /\bdoctoral\b/i,
+  /\bph\.?d\b/i,
 ];
 
-// Extra exclusions for "new grad / full-time" output only.
-// (We intentionally do NOT apply these exclusions to internships.)
+// For full-time new grad list only (intern list can have "Sr" internship labels, MBA internships, etc.)
 export const EXCLUDE_NEW_GRAD_ONLY_PATTERNS: readonly RegExp[] = [
   /\bintern\b/i,
   /\binternship\b/i,
   /\bco[-\s]?op\b/i,
-  /\bstage\b/i, // FR "stage" = internship
+  /\bstage\b/i,
   /\bplacement\b/i,
   /\bpracticum\b/i,
 
@@ -154,12 +174,13 @@ export const EXCLUDE_NEW_GRAD_ONLY_PATTERNS: readonly RegExp[] = [
   /\bhead\b/i,
   /\bvp\b/i,
   /\bvice\s+president\b/i,
-  /\bii\b/i, // e.g. Analyst II (often not entry level)
+
+  // usually non-entry-level ladder markers
+  /\bii\b/i,
   /\biii\b/i,
   /\biv\b/i,
 ];
 
-// Keywords that strongly indicate an internship (used for sanity-checking / rescue categorization)
 export const INTERN_TITLE_PATTERNS: readonly RegExp[] = [
   /\bintern\b/i,
   /\binternship\b/i,
@@ -169,14 +190,55 @@ export const INTERN_TITLE_PATTERNS: readonly RegExp[] = [
   /\bpracticum\b/i,
 ];
 
-// A lightweight location heuristic to split USA vs International.
-// This is NOT perfect — upstream sources often have inconsistent location strings.
-export const USA_LOCATION_PATTERNS: readonly RegExp[] = [
-  /\bUnited States\b/i,
-  /\bUSA\b/i,
-  /\bUS\b/i,
-  /\bRemote in USA\b/i,
-  // US state abbreviations as ", CA", ", NY", etc.
-  /,\s*(AL|AK|AZ|AR|CA|CO|CT|DE|FL|GA|HI|ID|IL|IN|IA|KS|KY|LA|ME|MD|MA|MI|MN|MS|MO|MT|NE|NV|NH|NJ|NM|NY|NC|ND|OH|OK|OR|PA|RI|SC|SD|TN|TX|UT|VT|VA|WA|WV|WI|WY)\b/,
-  /\bWashington, DC\b/i,
+// ===== USA-only location filtering =====
+//
+// IMPORTANT: location strings are messy.
+// - If we only do positive "USA regex", we will drop lots of US rows like "Boston" / "DFW" / zip codes.
+// - So we do **negative filtering**: drop ONLY locations that are explicitly non-US.
+//
+// This increases recall and is closer to the user's requirement ("don't miss stuff").
+
+export const EXPLICIT_NON_US_LOCATION_PATTERNS: readonly RegExp[] = [
+  /\bCanada\b/i,
+  /\bUnited Kingdom\b/i,
+  /\bUK\b/i,
+  /\bGermany\b/i,
+  /\bFrance\b/i,
+  /\bSpain\b/i,
+  /\bItaly\b/i,
+  /\bIreland\b/i,
+  /\bNetherlands\b/i,
+  /\bSweden\b/i,
+  /\bNorway\b/i,
+  /\bDenmark\b/i,
+  /\bFinland\b/i,
+  /\bSwitzerland\b/i,
+  /\bAustria\b/i,
+  /\bPoland\b/i,
+  /\bCzech\b/i,
+  /\bPortugal\b/i,
+  /\bBelgium\b/i,
+
+  /\bIndia\b/i,
+  /\bChina\b/i,
+  /\bHong Kong\b/i,
+  /\bSingapore\b/i,
+  /\bJapan\b/i,
+  /\bKorea\b/i,
+  /\bTaiwan\b/i,
+
+  /\bAustralia\b/i,
+  /\bNew Zealand\b/i,
+
+  // Canadian provinces (often appear without the word "Canada")
+  /\bOntario\b/i,
+  /\bBritish Columbia\b/i,
+  /\bAlberta\b/i,
+  /\bQuebec\b/i,
+  /\bNova Scotia\b/i,
+  /\bManitoba\b/i,
+  /\bSaskatchewan\b/i,
+  /\bNew Brunswick\b/i,
+  /\bNewfoundland\b/i,
+  /\bPrince Edward Island\b/i,
 ];
