@@ -1,48 +1,42 @@
-name: Get Jobs and Update Tables
+name: Sync & Filter Jobs (BA/DA)
 
 on:
   schedule:
     - cron: '0 12 * * *'
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   get-jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "npm"
+          cache-dependency-path: .github/scripts/package-lock.json
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
         working-directory: .github/scripts
 
-      - name: Get Jobs and Update Tables
+      - name: Sync upstream and update tables
         run: npm run get-jobs
         working-directory: .github/scripts
-        env:
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
-          APPLY_IMG_URL: ${{ secrets.APPLY_IMG_URL }}
 
       - name: Commit Markdown changes
         if: success()
         run: |
-          git config --local user.name ${{ secrets.GIT_USER_NAME }}
-          git config --local user.email ${{ secrets.GIT_USER_EMAIL }}
-          git add README.md INTERN_INTL.md NEW_GRAD_USA.md NEW_GRAD_INTL.md
-          git diff --staged --exit-code || git commit -m "chore: update tables"
-
-      - name: Push changes
-        if: success()
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
-          force: true
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --exit-code || git commit -m "chore: update job tables"
+          git push
