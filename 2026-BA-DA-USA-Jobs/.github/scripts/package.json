@@ -1,0 +1,17 @@
+{
+  "name": "ba-da-college-jobs",
+  "version": "1.0.0",
+  "description": "Auto-updating Business Analyst & Data Analyst full-time (new grad) job list filtered from public upstream repos.",
+  "scripts": {
+    "build": "tsc",
+    "get-jobs": "tsc && node build/get-jobs.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.10.5",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {}
+}
