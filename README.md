@@ -6,15 +6,15 @@ This repository is an **auto-updating** list of BA/DA roles in the **United Stat
 - Jobright BA/DA trackers (high recall; README typically shows the last ~7 days).
 - SpeedyApply job lists (supplemental).
 
-Last updated: **2026-01-25 12:31 (UTC)**
+Last updated: **2026-01-25 17:21 (UTC)**
 
 ## Quick Links
 
 ### Full-Time (New Grad)
-- [NEW_GRAD_USA.md](/NEW_GRAD_USA.md) — **161** roles
+- [NEW_GRAD_USA.md](/NEW_GRAD_USA.md) — **193** roles
 
 ### Internships
-- [INTERN_USA.md](/INTERN_USA.md) — **24** roles
+- [INTERN_USA.md](/INTERN_USA.md) — **27** roles
 
 ## Update Schedule
 
