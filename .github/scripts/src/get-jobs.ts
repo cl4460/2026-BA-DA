@@ -1,4 +1,4 @@
-import { mkdirSync, existsSync, readFileSync, writeFileSync } from "fs";
+import { mkdirSync, existsSync, readFileSync, writeFileSync, unlinkSync } from "fs";
 import path from "path";
 import {
   ATS_SEED_SOURCES,
@@ -556,10 +556,15 @@ function parseJobrightReadme(markdown: string, source: Source, track: TrackId, n
   const sourceShort = source.shortLabel;
 
   // Find first table header
+  // Jobright tables commonly use "Job Title" (not "Position"), so we must be flexible.
   let headerIdx = -1;
   for (let i = 0; i < lines.length; i += 1) {
     const line = (lines[i] ?? "").trim();
-    if (line.startsWith("|") && /\bCompany\b/i.test(line) && /\bPosition\b/i.test(line) && /\bLocation\b/i.test(line)) {
+    if (!line.startsWith("|")) continue;
+    const hasCompany = /\bCompany\b/i.test(line);
+    const hasLocation = /\bLocation\b/i.test(line);
+    const hasTitle = /\b(Position|Job\s*Title|Title|Role)\b/i.test(line);
+    if (hasCompany && hasLocation && hasTitle) {
       headerIdx = i;
       break;
     }
@@ -1419,6 +1424,21 @@ async function collectRowsForTrack(track: TrackId, nowUtc: Date): Promise<JobRow
 async function main(): Promise<void> {
   const now = new Date();
   const updatedUtc = formatUpdatedUtc(now);
+
+  // Hard requirement: USA-only repo should NOT keep any *_INTL.md artifacts.
+  // Users often have leftover files from earlier iterations; delete them so the repo stays clean.
+  const repoRoot = path.join(process.cwd(), "..", "..");
+  for (const stale of ["NEW_GRAD_INTL.md", "INTERN_INTL.md"]) {
+    const p = path.join(repoRoot, stale);
+    if (existsSync(p)) {
+      try {
+        unlinkSync(p);
+        console.log(`[info] removed stale file: ${stale}`);
+      } catch {
+        // ignore
+      }
+    }
+  }
 
   const sponsorCache = loadSponsorCache();
   pruneSponsorCache(sponsorCache, SPONSOR_CACHE_KEEP_DAYS);

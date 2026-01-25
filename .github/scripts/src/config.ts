@@ -333,6 +333,11 @@ export const INTERN_TITLE_PATTERNS: readonly RegExp[] = [
 export const EXPLICIT_NON_US_LOCATION_PATTERNS: readonly RegExp[] = [
   /\bCanada\b/i,
   /\bUnited\s+Kingdom\b/i,
+  /(?<!New\s)England\b/i,
+  /\bScotland\b/i,
+  /\bWales\b/i,
+  /\bNorthern\s+Ireland\b/i,
+
   /\bUK\b/i,
   /\bGermany\b/i,
   /\bFrance\b/i,
