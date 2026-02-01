@@ -10112,5 +10112,66 @@
   "https://jobright.ai/jobs/info/697e0d37ce48107c054256e8": {
     "status": "Unknown",
     "checkedAtIso": "2026-01-31T18:39:08.219Z"
+  },
+  "https://jobright.ai/jobs/info/697e75bdce48107c0542aab1": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T02:44:58.608Z"
+  },
+  "https://jobright.ai/jobs/info/697e974ece48107c0542b06c": {
+    "status": "Unknown",
+    "isClosed": true,
+    "checkedAtIso": "2026-02-01T02:44:58.622Z"
+  },
+  "https://jobright.ai/jobs/info/697e5d767f40342e15d726b5": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T02:44:58.664Z"
+  },
+  "https://jobright.ai/jobs/info/697e55197f40342e15d71f91": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T02:44:58.678Z"
+  },
+  "https://jobright.ai/jobs/info/697e5d9cce48107c05428c00": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T02:44:58.762Z"
+  },
+  "https://jobright.ai/jobs/info/697e5c517f40342e15d725bf": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T02:44:58.782Z"
+  },
+  "https://jobright.ai/jobs/info/697e5ab0ce48107c054289c5": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T02:44:58.811Z"
+  },
+  "https://jobright.ai/jobs/info/697e33d2abff4c399a9d05a1": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T02:44:58.850Z"
+  },
+  "https://jobright.ai/jobs/info/697e4e53abff4c399a9d09d4": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T02:44:58.890Z"
+  },
+  "https://jobright.ai/jobs/info/697e7f94abff4c399a9d3823": {
+    "status": "Unknown",
+    "isClosed": true,
+    "checkedAtIso": "2026-02-01T02:44:58.918Z"
+  },
+  "https://jobright.ai/jobs/info/697e337eabff4c399a9d0591": {
+    "status": "Unknown",
+    "isClosed": true,
+    "checkedAtIso": "2026-02-01T02:44:58.975Z"
   }
 }
