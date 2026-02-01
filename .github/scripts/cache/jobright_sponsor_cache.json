@@ -10281,5 +10281,63 @@
     "note": "H1B Sponsor Likely",
     "isClosed": false,
     "checkedAtIso": "2026-02-01T12:58:23.045Z"
+  },
+  "https://jobright.ai/jobs/info/697f8163abff4c399a9e181c": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T18:40:50.411Z"
+  },
+  "https://jobright.ai/jobs/info/696269ab25e18715077f47be": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-02-01T18:40:50.425Z"
+  },
+  "https://jobright.ai/jobs/info/697f7768ce48107c0543897c": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": true,
+    "checkedAtIso": "2026-02-01T18:40:50.581Z"
+  },
+  "https://jobright.ai/jobs/info/697f7b127f40342e15d8262c": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T18:40:50.663Z"
+  },
+  "https://jobright.ai/jobs/info/697f6444ce48107c054385f2": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": true,
+    "checkedAtIso": "2026-02-01T18:40:50.673Z"
+  },
+  "https://jobright.ai/jobs/info/697f40d6ce48107c05435d77": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T18:40:50.764Z"
+  },
+  "https://jobright.ai/jobs/info/697f3c397f40342e15d7f8d6": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T18:40:50.872Z"
+  },
+  "https://jobright.ai/jobs/info/697f6b53abff4c399a9e1561": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T18:40:50.904Z"
+  },
+  "https://jobright.ai/jobs/info/68cb8fc4ba798c1a501d1c99": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T18:40:51.177Z"
+  },
+  "https://jobright.ai/jobs/info/697f7dcfabff4c399a9e17cd": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-01T18:40:51.185Z"
+  },
+  "https://jobright.ai/jobs/info/697f5436abff4c399a9e0647": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-02-01T18:41:09.876Z"
   }
 }
