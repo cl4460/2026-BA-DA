@@ -10411,5 +10411,69 @@
     "note": "H1B Sponsor Likely",
     "isClosed": false,
     "checkedAtIso": "2026-02-02T02:34:45.979Z"
+  },
+  "https://jobright.ai/jobs/info/6980087ace48107c054430cb": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.774Z"
+  },
+  "https://jobright.ai/jobs/info/69802058ce48107c054440c7": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.779Z"
+  },
+  "https://jobright.ai/jobs/info/69802ac0abff4c399a9ed700": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.790Z"
+  },
+  "https://jobright.ai/jobs/info/6980138d7f40342e15d8cfdf": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.815Z"
+  },
+  "https://jobright.ai/jobs/info/698019347f40342e15d8da5f": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.849Z"
+  },
+  "https://jobright.ai/jobs/info/69801865ce48107c05443990": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.914Z"
+  },
+  "https://jobright.ai/jobs/info/69645447a112b402661249b4": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.925Z"
+  },
+  "https://jobright.ai/jobs/info/6980097b7f40342e15d8ce7b": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.939Z"
+  },
+  "https://jobright.ai/jobs/info/69801908ce48107c05443dcb": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:27.975Z"
+  },
+  "https://jobright.ai/jobs/info/6963fe6425e1871507807f26": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:28.001Z"
+  },
+  "https://jobright.ai/jobs/info/698018817f40342e15d8d9fa": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-02T07:07:28.072Z"
   }
 }

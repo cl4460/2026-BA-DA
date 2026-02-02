@@ -1,11 +1,11 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-02-02 02:34 (UTC)**
+Updated: **2026-02-02 07:06 (UTC)**
 
-Total roles: **92**
+Total roles: **93**
 
 Source breakdown (after filters):
-- **JR-DA**: 48
+- **JR-DA**: 49
 - **JR-BA**: 31
 - **VAN**: 12
 - **LV**: 1
@@ -43,7 +43,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Pattern Bioscience](https://pattern.bio) | RevOps Data Analyst | Lehi, UT, US | Hybrid | Likely | <a href="https://jobright.ai/jobs/info/697ccf81137a05102565c3fb?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 3d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Geosyntec Consultants](https://www.geosyntec.com) | Geographic Information Systems (GIS) Intern | Raleigh, NC | On Site | Likely | <a href="https://jobright.ai/jobs/info/6927c6c7d47de4798ece064c?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 3d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [MassMutual Ascend](https://massmutualascend.com) | Data Analytics Intern - Customer Experience (Summer 2026) | Cincinnati, OH | Hybrid | Likely | <a href="https://jobright.ai/jobs/info/69603b07a112b402660f0974?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 3d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [Geosyntec Consultants](https://www.geosyntec.com) | Geographic Information Systems (GIS) Intern | Wilmington, NC | On Site | Likely | <a href="https://jobright.ai/jobs/info/69352fc5f131d96e4846d334?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 3d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Crane ChemPharma & Energy](https://cranecpe.com/) | Business Line Management Intern | The Woodlands, TX | On Site | Likely | <a href="https://jobright.ai/jobs/info/69631a1da112b40266114915?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 3d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [McCain Foods](https://www.mccain.com/) | Global Business Management Internship | Oakbrook Terrace, IL | On Site | Likely | <a href="https://jobright.ai/jobs/info/697d6933727747250d584e40?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 3d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Horizon Blue Cross Blue Shield of New Jersey](http://www.horizonblue.com) | Business Process Improvement Intern | Newark, NJ | Hybrid | Likely | <a href="https://jobright.ai/jobs/info/697d62df137a051025668344?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 3d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
@@ -81,6 +80,8 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Absa Group](http://absa.co.za/) | Intern (M) - Business | Pensacola, FL | On Site | Unknown | <a href="https://jobright.ai/jobs/info/697c91593f57a33569664b1b?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 3d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Chloé](http://www.chloe.com) | Business Analyst Intern | BELLEVUE | On Site | Unknown | <a href="https://jobright.ai/jobs/info/697b82781423772304eba5f4?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Zoox](https://jobs.lever.co/zoox) | Process and Strategy Analyst Intern | Foster City, CA |  | Unknown | <a href="https://jobs.lever.co/zoox/6ea18c0c-cdf6-4987-847e-cff79b260a0f" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 40d | [LV](https://jobs.lever.co/zoox) |
+| [Conair LLC](http://www.conair.com/) | 2026 Consumer Insights Intern | Stamford, CT | Hybrid | No | <a href="https://jobright.ai/jobs/info/69645447a112b402661249b4?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
+| [Conair LLC](http://www.conair.com/) | 2026 Amazon Analytics Intern | Stamford, CT | Hybrid | No | <a href="https://jobright.ai/jobs/info/6963fe6425e1871507807f26?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [BioSpace](http://www.biospace.com/) | Internship - Dashboard Development | Plainsboro, NJ | On Site | No | <a href="https://jobright.ai/jobs/info/697f7b127f40342e15d8262c?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Olympus Corporation](https://heylink.me/yokubet.id/) | Olympus Intern, Clinical Research Data Management (Summer 2026) | Center Valley, PA | Remote | No | <a href="https://jobright.ai/jobs/info/697e08ec7f40342e15d6ed48?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Minitab](http://www.minitab.com/en-us/) | Data Privacy Intern | State College, PA | On Site | No | <a href="https://jobright.ai/jobs/info/696172e0f3f4cd1325066abf?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
