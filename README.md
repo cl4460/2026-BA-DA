@@ -10,15 +10,15 @@ We aggregate from multiple sources to avoid single-site coverage gaps:
 - Official ATS job boards (Greenhouse / Lever / Ashby) discovered from public seed lists
 - SpeedyApply lists (supplemental; filtered for BA/DA)
 
-Last updated: **2026-02-21 12:56 (UTC)**
+Last updated: **2026-02-21 18:40 (UTC)**
 
 ## Quick Links
 
 ### Full-Time (New Grad / Entry Level)
-- [NEW_GRAD_USA.md](/NEW_GRAD_USA.md) — **389** roles
+- [NEW_GRAD_USA.md](/NEW_GRAD_USA.md) — **394** roles
 
 ### Internships
-- [INTERN_USA.md](/INTERN_USA.md) — **149** roles
+- [INTERN_USA.md](/INTERN_USA.md) — **153** roles
 
 ## Update Schedule
 
