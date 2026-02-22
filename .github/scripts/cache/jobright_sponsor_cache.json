@@ -25724,5 +25724,11 @@
   "https://jobright.ai/jobs/info/6999ae5ece78e77b4fdea2fb": {
     "status": "Unknown",
     "checkedAtIso": "2026-02-21T18:41:15.342Z"
+  },
+  "https://jobright.ai/jobs/info/6999f31bce78e77b4fded16d": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-02-22T02:33:16.201Z"
   }
 }
