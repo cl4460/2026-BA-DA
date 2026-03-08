@@ -37137,5 +37137,17 @@
     "note": "H1B Sponsor Likely",
     "isClosed": false,
     "checkedAtIso": "2026-03-08T12:57:19.003Z"
+  },
+  "https://jobright.ai/jobs/info/69ad63e8142d5b4265fe8809": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": true,
+    "checkedAtIso": "2026-03-08T18:40:15.271Z"
+  },
+  "https://jobright.ai/jobs/info/69a50a88b600907a962aaea5": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-08T18:40:15.285Z"
   }
 }
