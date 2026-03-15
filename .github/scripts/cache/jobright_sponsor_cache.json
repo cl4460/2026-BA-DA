@@ -42604,5 +42604,22 @@
     "note": "No H1B",
     "isClosed": false,
     "checkedAtIso": "2026-03-15T13:01:23.689Z"
+  },
+  "https://jobright.ai/jobs/info/69b6b9c43b74eb1e2c847670": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-15T18:45:03.650Z"
+  },
+  "https://jobright.ai/jobs/info/69b6ce9006c1ba00c548a5eb": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-15T18:45:03.687Z"
+  },
+  "https://jobright.ai/jobs/info/69b6b0433b74eb1e2c8466b7": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-15T18:45:04.185Z"
   }
 }
