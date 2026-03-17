@@ -43278,5 +43278,67 @@
     "note": "No H1B",
     "isClosed": false,
     "checkedAtIso": "2026-03-17T02:29:41.742Z"
+  },
+  "https://jobright.ai/jobs/info/69b8bce956973837413e5b8c": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.517Z"
+  },
+  "https://jobright.ai/jobs/info/69b8babc3b74eb1e2c86c6ec": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.519Z"
+  },
+  "https://jobright.ai/jobs/info/69b8c47206c1ba00c54af0d6": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.523Z"
+  },
+  "https://jobright.ai/jobs/info/69b8c84756973837413e64ae": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.528Z"
+  },
+  "https://jobright.ai/jobs/info/69b8ba7906c1ba00c54ae990": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.568Z"
+  },
+  "https://jobright.ai/jobs/info/69b8bc443b74eb1e2c86c907": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.682Z"
+  },
+  "https://jobright.ai/jobs/info/69b8bad03b74eb1e2c86c70c": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.702Z"
+  },
+  "https://jobright.ai/jobs/info/69b8ae1006c1ba00c54ac2c5": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-03-17T07:10:27.763Z"
+  },
+  "https://jobright.ai/jobs/info/69b8a23706c1ba00c54aab61": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.765Z"
+  },
+  "https://jobright.ai/jobs/info/69b8c3773b74eb1e2c86ce40": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:27.824Z"
+  },
+  "https://jobright.ai/jobs/info/69b8bd213b74eb1e2c86cb4a": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-03-17T07:10:28.529Z"
   }
 }
