@@ -1,12 +1,12 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-04-26 03:22 (UTC)**
+Updated: **2026-04-26 07:44 (UTC)**
 
-Total roles: **141**
+Total roles: **139**
 
 Source breakdown (after filters):
-- **JR-DA**: 65
-- **JR-BA**: 58
+- **JR-DA**: 64
+- **JR-BA**: 57
 - **VAN**: 12
 - **GH**: 4
 - **LV**: 2
@@ -25,7 +25,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Amazon](https://amazon.com) | Intern-Economics, WW Integrated Marketing Systems and Intelligence (WIMSI) | New York, New York, USA | On Site | Likely | <a href="https://jobright.ai/jobs/info/69ebb9d77820c036924f66ff?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Stifel Financial Corp.](http://www.stifel.com) | Data Analyst Intern - Summer 2026 | St Louis, MO | On Site | Likely | <a href="https://jobright.ai/jobs/info/69ebaeb8dc35f7132c4b28d8?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Amazon Science](https://www.amazon.science) | Intern - Economics, Navigator Analytics | Seattle, WA | On Site | Likely | <a href="https://jobright.ai/jobs/info/69eba7e516b2612c2a11db34?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [Amazon Science](https://www.amazon.science) | Intern - Economics, Ads Econ | Seattle, WA | On Site | Likely | <a href="https://jobright.ai/jobs/info/69eba7554b0fa35a7077d700?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [EnerSys](http://enersys.com) | Data Analyst Intern | Springfield, MO | On Site | Likely | <a href="https://jobright.ai/jobs/info/69cf6164cdb525785fba1bcb?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [TikTok](https://www.tiktok.com) | Data Operation Project Intern (TikTok-PGC-Music-Artist Services) - 2026 Start (BS/MS) | Los Angeles, CA | On Site | Likely | <a href="https://jobright.ai/jobs/info/69ce8eeb398fb071abf864cc?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [EnerSys](http://enersys.com) | AI Supplier Risk Analytics Intern | Reading, PA | On Site | Likely | <a href="https://jobright.ai/jobs/info/69ceba32cfdc6132f942b7e3?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
@@ -121,7 +120,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [IDEXX](http://www.idexx.com) | Business Systems Analyst Intern | Westbrook, ME | Hybrid | Unknown | <a href="https://jobright.ai/jobs/info/69caee32aa3c2c1995e31e22?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Panorama Global](http://panoramaglobal.org/) | Business Operations Analyst Intern | United States | Hybrid | Unknown | <a href="https://jobright.ai/jobs/info/69e81c543aa0c4796439df92?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Corpay](https://payments.corpay.com) | Business Analyst Intern | Atlanta, GA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69e689afe0cd471b2f1264e6?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [Accenture](https://www.accenture.com) | Intern Business Analyst, Advisory & Experience - June 2026 | New York, One Manhattan West, Corp | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69e66d57f8fa2f3ec32a1b04?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Schreiber Foods](https://www.schreiberfoods.com/en-us) | IT Business Analyst Intern - Green Bay, WI - Year Round | Green Bay, WI | Hybrid | Unknown | <a href="https://jobright.ai/jobs/info/69caa3ccaa3c2c1995e2e745?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Oil States International](http://oilstatesintl.com) | Business Analyst Intern | Houston, Texas, United States | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69e67c393cfd986aa6f85f78?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [LogistiQ](https://logistiqsolutions.com) | Intern Business Analytics & Process Improvement | Port Clinton, OH | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69e73ef858811370cb11c274?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
