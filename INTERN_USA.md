@@ -1,12 +1,12 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-05-10 03:38 (UTC)**
+Updated: **2026-05-10 08:11 (UTC)**
 
-Total roles: **120**
+Total roles: **119**
 
 Source breakdown (after filters):
 - **JR-DA**: 71
-- **JR-BA**: 33
+- **JR-BA**: 32
 - **VAN**: 12
 - **GH**: 4
 
@@ -103,7 +103,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [8am](https://www.8am.com) | Business Operations Intern | San Diego, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69dd87409f97a42dc9c36922?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [QuadReal Property Group](https://www.quadreal.com/) | Business Systems Analyst, Fall 2026 - Toronto or Vancouver (Co-op/Internship) - 4 Months | Toronto, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69f96fe8582f810f9c8d1a24?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [QuadReal Property Group](https://www.quadreal.com/) | Business Systems Analyst, Fall 2026 - Toronto or Vancouver (Co-op/Internship) - 4 Months | Vancouver, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69f96fa081706a5bd2171d07?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [Scotiabank](https://www.scotiabank.com) | Velocity - Business Analyst Internship/Co-Op - Fall 2026 | Toronto, ON, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69f842d2582f810f9c8cd2f2?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [BMO](http://www.bmo.com) | Analyst, Fall 2026 (Co-op/Internship) - 12 Months | Toronto, ON, CAN, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69f834d20b36ff035475939d?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [BMO](http://www.bmo.com) | Business Analyst, Fall 2026 (Co-op/Internship) - 8 Months | Toronto, ON, CAN, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69fc28a02f9f6b7cf69116b3?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [BMO](http://www.bmo.com) | Business Analyst, Fall 2026 (Co-op/Internship) - 4 Months | Toronto, ON, CAN, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69fc293476c60e7b70af24e3?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
