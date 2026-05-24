@@ -1,12 +1,12 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-05-24 08:33 (UTC)**
+Updated: **2026-05-24 13:41 (UTC)**
 
-Total roles: **103**
+Total roles: **102**
 
 Source breakdown (after filters):
 - **JR-DA**: 72
-- **JR-BA**: 28
+- **JR-BA**: 27
 - **LV**: 2
 - **GH**: 1
 
@@ -15,8 +15,8 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 <!-- TABLE_START -->
 | Company | Position | Location | Work Model | Sponsorship | Posting | Age | Source |
 |---|---|---|---|---|---|---|---|
-| [RTW Investments, LP](http://www.rtwfunds.com) | Data Analyst Intern | New York | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a11ec679f654b3359cf20c3?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [RTW Investments, LP](http://www.rtwfunds.com) | Data Analyst Intern | New York City | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a11ec679f654b3359cf20c4?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
+| [RTW Investments, LP](http://www.rtwfunds.com) | Data Analyst Intern | New York | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a11ec679f654b3359cf20c3?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Industrial Electric Mfg. (IEM)](http://iemfg.com) | Intern - Productivity Data & Industrial Events | Franklin, Tennessee, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a11b50d69bd827926af4659?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [EV Realty](https://www.evrealtyus.com) | Intern, Data Analytics | San Francisco, CA | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a11148c83d714428982a58e?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Unity](https://unity.com/) | Intern, Research Science | USA-Mountain View | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a10d2bf619335383fb34e36?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
@@ -91,7 +91,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | **[Metropolitan Transportation Authority](https:/mta.info/)** | Business Planning, Emerging Talent Intern (Fall) | New York, NY | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69f01fb7ecbc8c2f731fe658?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [University of Utah Health](https://www.cs.utah.edu) | Business Services Intern | SALT LAKE CITY, UT, US | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a0c7cc90411d7417a1b917a?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [CPPI](https://cppi.com/) | Business Analyst Intern (Gainesville) | Gainesville, FL, US | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a0de7c880bf0430c762763c?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [General Atomics](http://www.ga.com) | Intern - Undergraduate (business) | San Diego, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/69ee2c1e7820c036924fe2d5?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [MBRDNA](https://jobs.lever.co/MBRDNA) | ADAS Data Analytics Intern | San Jose, CA |  | Unknown | <a href="https://jobs.lever.co/MBRDNA/e801fdb7-7c75-4378-bff6-b3f197489262" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 10d | [LV](https://jobs.lever.co/MBRDNA) |
 | [Hanwha Vision America](http://www.hanwhatechwin.com) | Data Analytics Intern | Teaneck, NJ | On Site | No | <a href="https://jobright.ai/jobs/info/6a10ef2d619335383fb3563b?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Protagonist](http://www.protagonist.io) | Computational Social Science Intern (Summer 2026) | Washington, DC | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a1062d083d7144289825dad?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
