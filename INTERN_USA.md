@@ -1,12 +1,12 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-06-27 08:40 (UTC)**
+Updated: **2026-06-27 13:49 (UTC)**
 
-Total roles: **78**
+Total roles: **77**
 
 Source breakdown (after filters):
 - **JR-DA**: 51
-- **JR-BA**: 26
+- **JR-BA**: 25
 - **LV**: 1
 
 Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword heuristics from ATS job descriptions. Always verify on the official posting.
@@ -91,7 +91,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [ACCA Careers](https://jobs.accaglobal.com/) | GDI Business Analyst Intern - OVIP | Austin, TX | On Site | No | <a href="https://jobright.ai/jobs/info/6a3aaffb649fdf1629305241?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [DCS Corp](http://www.dcscorp.com) | Business Operations Intern | Huntsville, AL | On Site | No | <a href="https://jobright.ai/jobs/info/6a32b3257f3fdd180d4c2e87?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 10d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Koch](https://www.kochinc.com) | Summer 2027 Business Analytics Internship | Wichita, Kansas | On Site | No | <a href="https://jobright.ai/jobs/info/6a30d04a43732c05812e3c5d?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 12d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [Zipline](https://www.zipline.com/) | Business Operations (Supply Chain) Intern (Fall 2026) | South San Francisco, CA | On Site | No | <a href="https://jobright.ai/jobs/info/6a2d8d1ffc0644749054c6fa?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 14d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 <!-- TABLE_END -->
 
 <a name="bottom"></a>
