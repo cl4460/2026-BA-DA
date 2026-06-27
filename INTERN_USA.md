@@ -1,6 +1,6 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-06-27 03:45 (UTC)**
+Updated: **2026-06-27 08:40 (UTC)**
 
 Total roles: **78**
 
@@ -84,7 +84,7 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Stealth](https://www.timelyai.com/) | Business Analyst Intern | United States | Remote | No | <a href="https://jobright.ai/jobs/info/6a35181e649fdf16292f7d7d?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Truveta](https://www.truveta.com) | Research Analyst Summer Intern | Greater Seattle Area | On Site | No | <a href="https://jobright.ai/jobs/info/69e2c666fcfcbd43860a4709?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [ND Health and Human Services](https://www.hhs.nd.gov) | Research Evaluation and Outcomes Intern | Bismarck, ND | On Site | No | <a href="https://jobright.ai/jobs/info/6a39e1e51232144fb156d972?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [Truveta](https://www.truveta.com) | Research Analyst Summer Intern | Seattle, WA | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a184b306243320e8d161fdd?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
+| [Truveta](https://www.truveta.com) | Research Analyst Summer Intern | Seattle, WA | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a06f1a64a0a6a7e7d81c6f4?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Truveta](https://www.truveta.com) | Research Analyst Summer Intern | Seattle, Washington, United States | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a184b416243320e8d161fe9?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [ConnectPrep](http://www.connectprep.com) | Data Analyst Internship | Boston, Massachusetts, United States | Remote | No | <a href="https://jobright.ai/jobs/info/6a3771e3649fdf16292fd2f5?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [ConnectPrep](http://www.connectprep.com) | Data Analyst Internship | Boston, MA | On Site | No | <a href="https://jobright.ai/jobs/info/6a37686c1232144fb156769d?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
