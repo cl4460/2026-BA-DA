@@ -1,11 +1,11 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-06-28 13:53 (UTC)**
+Updated: **2026-06-28 19:25 (UTC)**
 
-Total roles: **73**
+Total roles: **72**
 
 Source breakdown (after filters):
-- **JR-DA**: 44
+- **JR-DA**: 43
 - **JR-BA**: 28
 - **LV**: 1
 
@@ -32,7 +32,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Goosehead Insurance](http://www.gooseheadinsurance.com) | Revenue Operations Analytics Intern | Westlake, US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a3ac78006a4fd4b1fabecad?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [EXL](http://www.exlservice.com) | Intern | Omaha, Nebraska, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a3ac2addbedbf5680c70f02?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Steer](https://in.steergroup.com/) | Intern (Economic Development Data Analyst) | Pittsburgh, Pennsylvania, United States | Hybrid | Likely | <a href="https://jobright.ai/jobs/info/6a39dbe706a4fd4b1fabc51c?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [KPH HEALTHCARE SERVICES, INC](https://www.kphhealthcareservices.com/en/) | Business Intelligence Intern | Syracuse, NY | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a29da6bc07d4b6ae1c4352a?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Zipline](https://www.zipline.com/) | Business Operations (Supply Chain) Intern (Fall 2026) | South San Francisco, California, USA | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a36ba4da0f3e56e86d6bc1b?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 8d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Bank of China USA](http://www.bocusa.com) | Corporate Banking Department-Business Administration Intern | New York, NY, US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a305068524fd5657fe102c7?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 13d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Berkeley Industrial Engineering & Operations Research](https://ieor.berkeley.edu) | Data Analyst Intern at Omnium | Indiana, United States | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a40ee34d528ac2915f97074?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 0d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
@@ -60,7 +59,7 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [DCS Corp](http://www.dcscorp.com) | Business Operations Intern | Huntsville, AL, US | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a4019ad1afc66714d3c9ac6?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 11d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | **[MyEmployment](www.myemployment.com)** | Business Analyst & Quality Assurance Intern | United States | Remote | Unknown | <a href="https://jobright.ai/jobs/info/6a3184662ee3ac1b4beef57f?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 12d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Autoliv](http://autoliv.com) | Business Analyst / PMO Intern | 1320 Pacific Dr, Auburn Hills, Autoliv Americas - AAM, 48326, US | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a078310a203b1052e43bafd?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 13d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [Evrealty US](https://jobs.lever.co/evrealty-us) | Intern, Data Analytics | San Francisco, CA |  | Unknown | <a href="https://jobs.lever.co/evrealty-us/0274f48f-9b19-4bed-bf6a-5e02a2b1e865" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 36d | [LV](https://jobs.lever.co/evrealty-us) |
+| [Evrealty US](https://jobs.lever.co/evrealty-us) | Intern, Data Analytics | San Francisco, CA |  | Unknown | <a href="https://jobs.lever.co/evrealty-us/0274f48f-9b19-4bed-bf6a-5e02a2b1e865" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 37d | [LV](https://jobs.lever.co/evrealty-us) |
 | [SAP](https://www.sap.com) | SAP iXp Intern - Business Transformation & Architecture | Newtown Square, PA | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a34b3637f3fdd180d4cb714?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [General Atomics](http://www.ga.com) | Intern - Graduate Business | Poway, California | On Site | No | <a href="https://jobright.ai/jobs/info/6a3fe267b526a24fc31302a1?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Stealth](https://www.timelyai.com/) | Business Analyst Intern | United States | Remote | No | <a href="https://jobright.ai/jobs/info/6a3ffa7f16b1493953282e1e?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
