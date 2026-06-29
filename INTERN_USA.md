@@ -1,12 +1,12 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-06-29 04:15 (UTC)**
+Updated: **2026-06-29 11:06 (UTC)**
 
-Total roles: **71**
+Total roles: **70**
 
 Source breakdown (after filters):
 - **JR-DA**: 42
-- **JR-BA**: 28
+- **JR-BA**: 27
 - **LV**: 1
 
 Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword heuristics from ATS job descriptions. Always verify on the official posting.
@@ -58,7 +58,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Neighborly®](https://www.neighborlybrands.com) | Business Analyst Internship | Irving, TX, US | Hybrid | Unknown | <a href="https://jobright.ai/jobs/info/6a37a961ce501060b5cf8a8c?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 11d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [DCS Corp](http://www.dcscorp.com) | Business Operations Intern | Huntsville, AL, US | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a4019ad1afc66714d3c9ac6?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 12d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | **[MyEmployment](www.myemployment.com)** | Business Analyst & Quality Assurance Intern | United States | Remote | Unknown | <a href="https://jobright.ai/jobs/info/6a3184662ee3ac1b4beef57f?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 13d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [Autoliv](http://autoliv.com) | Business Analyst / PMO Intern | 1320 Pacific Dr, Auburn Hills, Autoliv Americas - AAM, 48326, US | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a078310a203b1052e43bafd?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 14d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Evrealty US](https://jobs.lever.co/evrealty-us) | Intern, Data Analytics | San Francisco, CA |  | Unknown | <a href="https://jobs.lever.co/evrealty-us/0274f48f-9b19-4bed-bf6a-5e02a2b1e865" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 37d | [LV](https://jobs.lever.co/evrealty-us) |
 | [SAP](https://www.sap.com) | SAP iXp Intern - Business Transformation & Architecture | Newtown Square, PA | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a34b3637f3fdd180d4cb714?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [General Atomics](http://www.ga.com) | Intern - Graduate Business | Poway, California | On Site | No | <a href="https://jobright.ai/jobs/info/6a3fe267b526a24fc31302a1?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
