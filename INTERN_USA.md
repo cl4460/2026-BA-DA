@@ -1,11 +1,11 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-07-04 13:39 (UTC)**
+Updated: **2026-07-04 19:18 (UTC)**
 
-Total roles: **84**
+Total roles: **86**
 
 Source breakdown (after filters):
-- **JR-DA**: 54
+- **JR-DA**: 56
 - **JR-BA**: 29
 - **LV**: 1
 
@@ -14,6 +14,7 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 <!-- TABLE_START -->
 | Company | Position | Location | Work Model | Sponsorship | Posting | Age | Source |
 |---|---|---|---|---|---|---|---|
+| [Bumble Bee Foods](http://www.bumblebee.com/) | Business Solutions & Data Analytics Intern | San Diego,CA,US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a2c36cda1d15e3c552fa955?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 0d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [West Fraser](http://www.westfraser.com/) | Automation Data Analytics Intern - Summer 2026 | Greenville, SC | On Site | Likely | <a href="https://jobright.ai/jobs/info/69e0ba676c20aa114953d536?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Medpace](http://www.medpace.com) | Feasibility Informatics Internship/Co-Op Fall 2026 | Cincinnati, OH | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a284a442d6c332ee52e50c1?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Medpace](http://www.medpace.com) | Clinical Data Intern - Fall 2026 | Cincinnati, OH | On Site | Likely | <a href="https://jobright.ai/jobs/info/69d6937f48f0c8161d2f8b0d?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
@@ -34,6 +35,7 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [PPL Corporation](https://www.pplweb.com/) | R&D Business Intern - Fall 2026 | Allentown, PA | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a3c0de2122f340d29cec52d?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 10d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [PPL Electric Utilities](https://pplelectric.com) | R&D Business Intern - Fall 2026 | Allentown, PA, US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a3be56c982bb239f812d7f8?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 10d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [PPL Electric Utilities](https://pplelectric.com) | R&D Business Intern - Fall 2026 | Providence, RI, US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a3be569982bb239f812d7f6?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 10d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
+| [Abaka AI](https://www.abaka.ai/) | Summer Research Intern | Mountain View, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/699e4504e0bddb6acacdaafc?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 0d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Together AI](https://www.together.ai) | Research Intern, Inference (Fall 2026) | San Francisco, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a2c5f29fc06447490549999?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 0d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [GoMaterials](https://www.gomaterials.com/) | Data Quality Intern - Fall 2026 | Montreal, QC | Hybrid | Unknown | <a href="https://jobright.ai/jobs/info/6a48157f3dbab558e29abeb2?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Franklin County Data Center (FCDC)](https://datacenter.franklincountyohio.gov) | 2026 Fall GIS Intern | Columbus, OH 43215, USA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a46b403971cd25b06f8fd98?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
