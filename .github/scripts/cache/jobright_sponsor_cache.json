@@ -1,42 +1,4 @@
 {
-  "https://jobright.ai/jobs/info/69f96446b1fc847fc1aebe65": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-05-05T08:16:07.287Z"
-  },
-  "https://jobright.ai/jobs/info/69f9804ea3d34b4f76f61876": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-05-05T08:16:07.293Z"
-  },
-  "https://jobright.ai/jobs/info/69a8304d7ac93962b707edc5": {
-    "status": "Unknown",
-    "isClosed": false,
-    "checkedAtIso": "2026-05-05T08:16:07.296Z"
-  },
-  "https://jobright.ai/jobs/info/69f95cda0b36ff035475e047": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-05-05T08:16:07.313Z"
-  },
-  "https://jobright.ai/jobs/info/69f96fe8582f810f9c8d1a24": {
-    "status": "Unknown",
-    "isClosed": false,
-    "checkedAtIso": "2026-05-05T08:16:07.316Z"
-  },
-  "https://jobright.ai/jobs/info/69f96fef582f810f9c8d1a2e": {
-    "status": "Unknown",
-    "isClosed": false,
-    "checkedAtIso": "2026-05-05T08:16:07.562Z"
-  },
-  "https://jobright.ai/jobs/info/69f96fa081706a5bd2171d07": {
-    "status": "Unknown",
-    "isClosed": false,
-    "checkedAtIso": "2026-05-05T08:16:07.564Z"
-  },
   "https://jobright.ai/jobs/info/69fa13dda3d34b4f76f63d47": {
     "status": "No",
     "note": "No H1B",
@@ -36207,5 +36169,23 @@
     "note": "No H1B",
     "isClosed": false,
     "checkedAtIso": "2026-07-04T03:27:40.568Z"
+  },
+  "https://jobright.ai/jobs/info/6a273dc3ca77fd3096d2648d": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-07-04T08:41:28.389Z"
+  },
+  "https://jobright.ai/jobs/info/6a489c69971cd25b06f947a3": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-07-04T08:41:28.405Z"
+  },
+  "https://jobright.ai/jobs/info/6a4879643dbab558e29acd65": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-07-04T08:41:28.413Z"
   }
 }
