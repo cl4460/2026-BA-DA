@@ -1,12 +1,12 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-07-05 13:46 (UTC)**
+Updated: **2026-07-05 19:22 (UTC)**
 
 Total roles: **86**
 
 Source breakdown (after filters):
-- **JR-DA**: 55
-- **JR-BA**: 30
+- **JR-DA**: 56
+- **JR-BA**: 29
 - **LV**: 1
 
 Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword heuristics from ATS job descriptions. Always verify on the official posting.
@@ -14,9 +14,9 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 <!-- TABLE_START -->
 | Company | Position | Location | Work Model | Sponsorship | Posting | Age | Source |
 |---|---|---|---|---|---|---|---|
+| [Everstream Analytics](https://www.everstream.ai) | Intelligence Solutions Intern | United States (Remote) | Remote | Likely | <a href="https://jobright.ai/jobs/info/6a3f13d1ce7cce40b3422f46?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 0d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Wealthspire](https://www.wealthspire.com/) | AI and BI Data Intern | Chicago, IL, US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a44c82565e80d3c99f2d320?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Bumble Bee Foods](http://www.bumblebee.com/) | Business Solutions & Data Analytics Intern | San Diego,CA,US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a2c36cda1d15e3c552fa955?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [Zipline](https://www.zipline.com/) | Business Operations (Supply Chain) Intern (Fall 2026) | South San Francisco, California, USA | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a36ba4da0f3e56e86d6bc1b?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [West Fraser](http://www.westfraser.com/) | Automation Data Analytics Intern - Summer 2026 | Greenville, SC | On Site | Likely | <a href="https://jobright.ai/jobs/info/69e0ba676c20aa114953d536?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Medpace](http://www.medpace.com) | Feasibility Informatics Internship/Co-Op Fall 2026 | Cincinnati, OH | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a284a442d6c332ee52e50c1?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Medpace](http://www.medpace.com) | Clinical Data Intern - Fall 2026 | Cincinnati, OH | On Site | Likely | <a href="https://jobright.ai/jobs/info/69d6937f48f0c8161d2f8b0d?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
@@ -57,7 +57,7 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [General Atomics Aeronautical Systems](https://ga-asi.com) | Intern - Undergraduate (business) | San Diego, California | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a3fe22e9dd7f954cafe7501?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 8d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [TikTok](https://www.tiktok.com) | Business Analyst Project Intern(TikTok- Operations) - 2026 Start (BS/MS) | Los Angeles, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a302fe1093df201d07affd0?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 11d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Honolulu Authority for Rapid Transportation (HART)](https://honolulutransit.org) | Business Majors Internship | Honolulu, HI | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a3d64b0d261407de98002af?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 11d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [Evrealty US](https://jobs.lever.co/evrealty-us) | Intern, Data Analytics | San Francisco, CA |  | Unknown | <a href="https://jobs.lever.co/evrealty-us/0274f48f-9b19-4bed-bf6a-5e02a2b1e865" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 43d | [LV](https://jobs.lever.co/evrealty-us) |
+| [Evrealty US](https://jobs.lever.co/evrealty-us) | Intern, Data Analytics | San Francisco, CA |  | Unknown | <a href="https://jobs.lever.co/evrealty-us/0274f48f-9b19-4bed-bf6a-5e02a2b1e865" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 44d | [LV](https://jobs.lever.co/evrealty-us) |
 | [Vectech, Inc. (Techstars '23)](https://www.vectech.io/) | Entomology and Biostatistics Intern (Summer 2026) | Baltimore, MD | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a49f4baf9cbb100d1ab45bd?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Indiana Fever](https://fever.wnba.com/) | Ticket Analytics Intern - Fall 2026 | Indianapolis, IN | On Site | No | <a href="https://jobright.ai/jobs/info/6a343ae9f6b55d12c791babd?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Harbinger](https://harbingermotors.com) | Intern, Production Data Analytics | Garden Grove, CA | On Site | No | <a href="https://jobright.ai/jobs/info/6a2cbb59a1d15e3c552fcfff?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
