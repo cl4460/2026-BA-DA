@@ -1,11 +1,11 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-07-07 03:42 (UTC)**
+Updated: **2026-07-07 09:47 (UTC)**
 
-Total roles: **76**
+Total roles: **73**
 
 Source breakdown (after filters):
-- **JR-DA**: 45
+- **JR-DA**: 42
 - **JR-BA**: 30
 - **LV**: 1
 
@@ -85,9 +85,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Aon](http://www.aon.com) | AI and BI Data Intern | Chicago, IL | On Site | No | <a href="https://jobright.ai/jobs/info/6a44aad60153061b8b3e0c77?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Tesla](https://www.tesla.com) | Internship, Business Analyst, Applications Engineering (Fall 2026) | Fremont, CA | On Site | No | <a href="https://jobright.ai/jobs/info/6a43205638fa63084105046e?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [thyssenkrupp Materials NA](https://www.thyssenkrupp-materials-na.com/) | Analytics Intern | Cleveland, OH | On Site | No | <a href="https://jobright.ai/jobs/info/6a4444b5b156014e414bc165?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [Innovaccer](https://www.innovaccer.com) | Data Ops -Intern | United States | Remote | No | <a href="https://jobright.ai/jobs/info/6a43f71c0153061b8b3decc0?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [SciTec](https://scitec.com) | DoD Skillbridge Internship for Transitioning Military Service Members | Boulder, CO | On Site | No | <a href="https://jobright.ai/jobs/info/6a2b0681c07d4b6ae1c48c4c?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [Pacers Sports & Entertainment](http://www.pacers.com) | Ticket Analytics Intern - Fall 2026 | Indianapolis, IN | On Site | No | <a href="https://jobright.ai/jobs/info/6a343b9b649fdf16292f4c85?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Stealth](https://www.timelyai.com/) | Business Analyst Intern | United States | Remote | No | <a href="https://jobright.ai/jobs/info/6a3ffa7f16b1493953282e1e?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 10d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [PPL Electric Utilities](https://pplelectric.com) | R&D Business Intern - Fall 2026 | Louisville, KY, US | On Site | No | <a href="https://jobright.ai/jobs/info/6a3be56b982bb239f812d7f7?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 13d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 <!-- TABLE_END -->
