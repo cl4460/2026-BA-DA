@@ -1,12 +1,12 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-07-21 02:54 (UTC)**
+Updated: **2026-07-21 08:33 (UTC)**
 
-Total roles: **91**
+Total roles: **90**
 
 Source breakdown (after filters):
 - **JR-DA**: 54
-- **JR-BA**: 35
+- **JR-BA**: 34
 - **VAN**: 1
 - **LV**: 1
 
@@ -35,7 +35,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [TikTok](https://www.tiktok.com) | Business Analyst Project Intern (GBS SMB) - 2026 Start (BS/MS) | New York, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a3017be43732c05812e07ee?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 8d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Presto](https://www.prestocharging.com/) | Business Analyst Intern | San Mateo, California, United States | Remote | Likely | <a href="https://jobright.ai/jobs/info/6a541eadc8eb0843027aedfd?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 9d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Volvo Group](http://www.volvogroup.com) | Intern: Business Control (Fall 2026) | Greensboro, NC, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a542d2c8ef95364ead94ab1?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 14d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [Autoliv](http://autoliv.com) | Business Analyst / PMO Intern | 1320 Pacific Dr, Auburn Hills, Autoliv Americas - AAM, 48326, US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a078310a203b1052e43bafd?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 14d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [SciTec](https://scitec.com) | DoD Skillbridge Internship for Transitioning Military Service Members | Fairborn, OH | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a290542883c0d3be6545609?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Huck Adventures, Inc](http://www.huckadventures.com) | Research Analyst Intern | Boulder Creek Path, Boulder, CO, USA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a5370e2e726ec56126a6d57?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Municipal Mowing Solutions](http://www.alamo-industrial.com/) | Business Intelligence Summer Intern | New Braunfels, TX, United States | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a5da7a4686b4755d1e1e928?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
