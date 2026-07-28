@@ -10,7 +10,7 @@ We aggregate from multiple sources to avoid single-site coverage gaps:
 - Official ATS job boards (Greenhouse / Lever / Ashby) discovered from public seed lists
 - SpeedyApply lists (supplemental; filtered for BA/DA)
 
-Last updated: **2026-07-28 02:44 (UTC)**
+Last updated: **2026-07-28 08:38 (UTC)**
 
 ## Quick Links
 
