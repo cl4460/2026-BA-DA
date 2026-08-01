@@ -1,12 +1,12 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-08-01 08:24 (UTC)**
+Updated: **2026-08-01 13:26 (UTC)**
 
-Total roles: **95**
+Total roles: **96**
 
 Source breakdown (after filters):
 - **JR-DA**: 55
-- **JR-BA**: 38
+- **JR-BA**: 39
 - **VAN**: 2
 
 Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword heuristics from ATS job descriptions. Always verify on the official posting.
@@ -80,6 +80,7 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Jomboy Media](https://jomboymedia.com) | Data Analytics Intern- Fall 2026 | New York, NY, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a6ca57357120971bf3ac4e5?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Miller Electric Company](https://www.mecojax.com) | Business Associates – 2026 Internship Class | Jacksonville, FL, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a6d3456acb0a61f9dbc9741?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [BMW Group](http://www.bmwgroup.com) | IT Business Analyst Intern (Spring 2027) | Greenville, SC, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a6d08dc32f9300c3a3e6aeb?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
+| [City of Austin](https://www.austintexas.gov) | Business Intelligence Internship | United States | Remote | No | <a href="https://jobright.ai/jobs/info/6a6dabb541b41d325296a1e4?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [EMCOR Group, Inc.](http://emcorgroup.com) | Business Associates – 2026 Internship Class | Jacksonville, FL, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a6da27d66158d7ef887e509?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Bestow](https://www.bestow.com) | Business Operations and AI Intern | Dallas, TX, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a6cdbefca1f9338466011d1?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Brookfield](https://www.brookfield.com) | Intern, Business Analyst | New York, New York, United States of America | On Site | No | <a href="https://jobright.ai/jobs/info/6a5082daf4a6e7316717d3f8?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
