@@ -1,11 +1,11 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-08-02 13:27 (UTC)**
+Updated: **2026-08-02 19:14 (UTC)**
 
-Total roles: **94**
+Total roles: **95**
 
 Source breakdown (after filters):
-- **JR-DA**: 54
+- **JR-DA**: 55
 - **JR-BA**: 38
 - **VAN**: 2
 
@@ -14,6 +14,7 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 <!-- TABLE_START -->
 | Company | Position | Location | Work Model | Sponsorship | Posting | Age | Source |
 |---|---|---|---|---|---|---|---|
+| [Everstream Analytics](https://www.everstream.ai) | Intelligence Solutions Intern | United States (Remote) | Remote | Likely | <a href="https://jobright.ai/jobs/info/6a3f13d1ce7cce40b3422f46?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 0d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [AccessHealth](https://www.accesshealthwv.com) | Remote Healthcare Data & AI Finance Strategy Intern | Virginia Beach, VA, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a6e8d71ad0fe2053db9e231?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [ZURU Toys](https://www.zuru.com) | Data Analyst Intern | Los Angeles metropolitan area, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a6de955160eda5948e89f3f?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 1d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [UF Health](https://ufhealth.org/) | Student / Intern / IT Data - Analytics | Gainesville, FL, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a6d577332f9300c3a3e7e91?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
@@ -33,8 +34,8 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [BNP Paribas](https://group.bnpparibas) | 2027 – Summer Analyst Internship - Corporate Functions, Technology | Jersey City, NJ, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/69fb321be15600084115790b?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Simular](https://simular.ai) | Data Analytics Intern | Palo Alto, CA, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a69fdef16c69119640fbbfa?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [McKinsey & Company](http://www.mckinsey.com) | Business Analyst Intern | Atlanta, GA, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a5761c8f7517b519ad5a10e?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [Autoliv](http://autoliv.com) | Business Analyst / PMO Intern | 1320 Pacific Dr, Auburn Hills, Autoliv Americas - AAM, 48326, US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a078310a203b1052e43bafd?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Autoliv](http://autoliv.com) | Business Analyst / PMO Intern | Auburn Hills, MI, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a55bcc6ef22935f2e3f66b5?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
+| [Autoliv](http://autoliv.com) | Business Analyst / PMO Intern | 1320 Pacific Dr, Auburn Hills, Autoliv Americas - AAM, 48326, US | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a078310a203b1052e43bafd?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Magnera Corporation](https://magnera.com/) | IT Data Analyst Intern | Evansville, IN, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a5637a5efb06a45240d45a4?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | **[Valuable Insight](valuable-insight.com)** | Data Analyst - Intern | Coral Springs, FL, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a56d09af7517b519ad58392?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Medscape](http://www.medscape.com) | BI Intern | Newark, NJ, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a54f23bae07d60a8d00de97?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
