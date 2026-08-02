@@ -1,11 +1,11 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-08-02 03:16 (UTC)**
+Updated: **2026-08-02 08:27 (UTC)**
 
-Total roles: **95**
+Total roles: **93**
 
 Source breakdown (after filters):
-- **JR-DA**: 55
+- **JR-DA**: 53
 - **JR-BA**: 38
 - **VAN**: 2
 
@@ -39,7 +39,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | **[Valuable Insight](valuable-insight.com)** | Data Analyst - Intern | Coral Springs, FL, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a56d09af7517b519ad58392?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Medscape](http://www.medscape.com) | BI Intern | Newark, NJ, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a54f23bae07d60a8d00de97?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Sandhills Global](https://www.sandhills.com/) | Business Analyst Intern | Lincoln, NE | On Site | Likely | <a href="https://jobright.ai/jobs/info/68cd4184b2a74e1837ed47f2?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [American Enterprise Institute](http://www.aei.org) | Fall Intern: Center on Opportunity and Social Mobility | Washington, DC, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a5839e19838a11e5d8375b6?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Heli America](https://www.heliforkliftamerica.com) | IT Business Analyst Intern | Atlanta, GA, United States | On Site | Likely | <a href="https://jobright.ai/jobs/info/6a63893be8d8d22e329292fc?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 9d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Golden Pet Brands](https://goldenpetbrands.com) | Data Analytics Intern | United States | Remote | Unknown | <a href="https://jobright.ai/jobs/info/6a6d52355c54bc4752cf1f5f?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Bee Sweet Citrus, Inc.](https://www.beesweetcitrus.com) | Data Processing Intern | Fowler, CA | On Site | Unknown | <a href="https://jobright.ai/jobs/info/6a19e0382b206f3955eb14a9?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 2d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
@@ -94,7 +93,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | **[Audactus](www.audactus.com)** | Intern Analyst | New York, NY, United States | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a5824a468d16a30e2411e47?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Kroenke Sports & Entertainment](https://www.ballarena.com) | Intern, Business Intelligence | Denver, CO, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a6abad32674685f04abff5f?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [International Rescue Committee](http://www.rescue.org) | Fall 2026: Data Integration & Reporting Intern (Unpaid) | San Diego, CA, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a63f1e98d53603449605287?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
-| [AgentGov](https://agentgov.cloud) | Agentic Data Quality Analyst (Intern) | Franklin Lakes, NJ, United States | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a6a3a9148355b3f12befcc7?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Sandia National Laboratories](http://www.sandia.gov/) | Intern, Business Undergraduate Year Round - Mission Services Talent Acquisition Team (MSTAT), Hybrid | Albuquerque, NM, United States | Hybrid | No | <a href="https://jobright.ai/jobs/info/6a6a2b51c63ba56308f51a16?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 4d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Eide Bailly](http://www.eidebailly.com) | Data Analytics Intern (Remote - Fall 2026) | Lehi, UT, United States | Remote | No | <a href="https://jobright.ai/jobs/info/6a695397ceb2691dfb2088a2?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Charlotte Hornets](https://www.nba.com/hornets/) | Business Intelligence Intern | Charlotte, NC, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a68e44fb22f1b56a60296f9?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
