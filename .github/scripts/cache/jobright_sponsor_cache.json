@@ -1,189 +1,4 @@
 {
-  "https://jobright.ai/jobs/info/6a2a19151de59e0682a829a1": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.410Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a3a09c07d4b6ae1c450f7": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.432Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a2ba32cde2824469c081a": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.452Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a30382cde2824469c0b9e": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.492Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a3c78c07d4b6ae1c4516f": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.534Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a4450495d985b9942846d": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.631Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a2e0b495d985b99427b6e": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.683Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a2a0e1de59e0682a83193": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.714Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a2a0f1de59e0682a8319b": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.748Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a31b31de59e0682a837a5": {
-    "status": "Unknown",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:55.871Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a2428495d985b9942736b": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.886Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a2e12c07d4b6ae1c44d12": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.926Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a5376495d985b99428877": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:55.961Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a5376495d985b9942887d": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:55.963Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a29fa1de59e0682a830cf": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:55.998Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a41551de59e0682a83c9f": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:56.062Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6cb50c4972328e7e8b6e": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:56.115Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a28a30c4972328e7e72c1": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:56.162Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b39": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:56.177Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b2f": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:56.181Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b34": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:56.294Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b2c": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:56.327Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b2a": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:56.344Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b3a": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:56.374Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b32": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:56.434Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b36": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:56.531Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b31": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:56.554Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b28": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:56.562Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b35": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": true,
-    "checkedAtIso": "2026-06-11T10:41:56.584Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a6f8cd3ec8317fe143b2e": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:56.607Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a1f55d3ec8317fe141b4f": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-06-11T10:41:56.641Z"
-  },
   "https://jobright.ai/jobs/info/6a2a9a8c2cde2824469c257d": {
     "status": "No",
     "note": "No H1B",
@@ -21869,5 +21684,34 @@
     "note": "No H1B",
     "isClosed": false,
     "checkedAtIso": "2026-08-10T07:46:38.181Z"
+  },
+  "https://jobright.ai/jobs/info/6a79ab4bb17cba569036358c": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-08-10T13:14:38.563Z"
+  },
+  "https://jobright.ai/jobs/info/6a6d9edaca1f93384660435b": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-08-10T13:14:38.581Z"
+  },
+  "https://jobright.ai/jobs/info/6a7993bcbb6ca93ae56177ba": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-08-10T13:14:38.707Z"
+  },
+  "https://jobright.ai/jobs/info/6a79a8117b3417772aded5e2": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-08-10T13:14:38.761Z"
+  },
+  "https://jobright.ai/jobs/info/68974d2373b3a600fe8967eb": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-08-10T13:14:38.897Z"
   }
 }
