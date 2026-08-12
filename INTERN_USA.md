@@ -1,11 +1,11 @@
 # 2026 USA Business Analyst & Data Analyst Internships Positions
 
-Updated: **2026-08-12 13:15 (UTC)**
+Updated: **2026-08-12 19:04 (UTC)**
 
-Total roles: **107**
+Total roles: **106**
 
 Source breakdown (after filters):
-- **JR-DA**: 60
+- **JR-DA**: 59
 - **JR-BA**: 44
 - **VAN**: 3
 
@@ -110,7 +110,6 @@ Sponsorship is best-effort: (a) Jobright H1B labels when available, (b) keyword 
 | [Milliman](http://www.milliman.com) | Healthcare Data Analyst Intern (Summer 2027) - Indianapolis Health | Indianapolis, IN, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a760d46bb6ca93ae5610aa8?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Susquehanna International Group](https://www.sig.com) | Analytics Internship: Fall 2026 | Richmond,Virginia,United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a3d5805d261407de97ffe01?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 5d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Solar Turbines](https://www.solarturbines.com) | 2027 Business Analyst Intern | San Diego, CA, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a6828b2b9adcd752800df59?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 6d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
-| [The City of San Diego](https://www.sandiego.gov/publicworks) | Intern | San Diego, CA, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a73c0978cd88e7ccbf5a62e?utm_campaign=1066&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 7d | [JR-DA](https://github.com/jobright-ai/2026-Data-Analysis-Internship) |
 | [Touchpoints](https://touchpointsinc.com/) | Business Analyst / Technical Analyst Intern | Sacramento, CA, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a720e89e2b7476e7b210f09?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 8d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [Famous Supply](http://famous-supply.com) | Business Process Improvement Intern – Data Governance | Akron, OH, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a567ad710c4d945d8649cfd?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 9d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
 | [ACCA Careers](https://jobs.accaglobal.com/) | IT Business Analyst Intern (Spring 2027) | Greenville, SC, United States | On Site | No | <a href="https://jobright.ai/jobs/info/6a7005abcd3bac13d37095fa?utm_campaign=1067&utm_source=git" target="_blank"><img src="https://i.imgur.com/JpkfjIq.png" width="90" alt="Apply"/></a> | 12d | [JR-BA](https://github.com/jobright-ai/2026-Business-Analyst-Internship) |
