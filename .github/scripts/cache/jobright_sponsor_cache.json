@@ -1,21 +1,4 @@
 {
-  "https://jobright.ai/jobs/info/6a4dff391544d7246c0d188d": {
-    "status": "Unknown",
-    "isClosed": false,
-    "checkedAtIso": "2026-07-08T14:21:02.883Z"
-  },
-  "https://jobright.ai/jobs/info/6a4db5ff35e45603c4bb4995": {
-    "status": "Likely",
-    "note": "H1B Sponsor",
-    "isClosed": false,
-    "checkedAtIso": "2026-07-08T14:21:02.905Z"
-  },
-  "https://jobright.ai/jobs/info/6a4deea1d27b2c4dda9b8d5e": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-07-08T14:21:03.346Z"
-  },
   "https://jobright.ai/jobs/info/6a4618e0971cd25b06f8b3c5": {
     "status": "Unknown",
     "checkedAtIso": "2026-07-08T19:36:54.701Z"
@@ -26434,5 +26417,96 @@
   "https://jobright.ai/jobs/info/6a9d14f7a7ba386c5d66f6ec": {
     "status": "Unknown",
     "checkedAtIso": "2026-09-06T10:33:57.669Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b8f1388387060593865": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:25.933Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b69e590a313642c659fff": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:25.934Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b6a191388387060598081": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:25.935Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b69e79c24314c35f99331": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:25.936Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b84fe45b8490f603c3e": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:25.937Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b581388387060593857": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:25.939Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b69e290a313642c659ffd": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.034Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b361388387060593848": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.035Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7bfaa33d28569fb9a0e8": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.037Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b79e6c97d4b970af8bf": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.038Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b55a33d28569fb9a0c8": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.039Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b69e7d5ff1f3f1c39f0f3": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.128Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b176c308f08f89c5ee2": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.129Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b69e4fe45b8490f60840d": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.137Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b69e690a313642c65a000": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.153Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b946c308f08f89c5f07": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.222Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7bb6a33d28569fb9a0e2": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.223Z"
+  },
+  "https://jobright.ai/jobs/info/6a9a7b56a33d28569fb9a0c9": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.266Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b69e39c24314c35f9932f": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.268Z"
+  },
+  "https://jobright.ai/jobs/info/6a9b69e29c24314c35f9932d": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-09-06T15:09:26.269Z"
+  },
+  "https://jobright.ai/jobs/info/6a273dc3ca77fd3096d2648d": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-09-06T15:09:26.409Z"
+  },
+  "https://jobright.ai/jobs/info/6a9d152e75edfa11b470ef74": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-09-06T15:09:26.475Z"
   }
 }
