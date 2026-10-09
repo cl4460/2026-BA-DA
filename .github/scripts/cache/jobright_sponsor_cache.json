@@ -1,33 +1,4 @@
 {
-  "https://jobright.ai/jobs/info/6a796cd2b17cba5690362c75": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-08-10T07:46:38.008Z"
-  },
-  "https://jobright.ai/jobs/info/6a2a19170c4972328e7e6c3b": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-08-10T07:46:38.011Z"
-  },
-  "https://jobright.ai/jobs/info/6a794f544817aa430704cb99": {
-    "status": "Unknown",
-    "isClosed": false,
-    "checkedAtIso": "2026-08-10T07:46:38.026Z"
-  },
-  "https://jobright.ai/jobs/info/6a79691c4817aa430704cea9": {
-    "status": "Likely",
-    "note": "H1B Sponsor Likely",
-    "isClosed": false,
-    "checkedAtIso": "2026-08-10T07:46:38.119Z"
-  },
-  "https://jobright.ai/jobs/info/6a795b82b17cba5690362b54": {
-    "status": "No",
-    "note": "No H1B",
-    "isClosed": false,
-    "checkedAtIso": "2026-08-10T07:46:38.181Z"
-  },
   "https://jobright.ai/jobs/info/6a79ab4bb17cba569036358c": {
     "status": "No",
     "note": "No H1B",
@@ -28646,5 +28617,44 @@
     "note": "H1B Sponsor Likely",
     "isClosed": false,
     "checkedAtIso": "2026-10-09T05:16:09.039Z"
+  },
+  "https://jobright.ai/jobs/info/6ac88c85fcdafb60c6a48c7b": {
+    "status": "Unknown",
+    "checkedAtIso": "2026-10-09T12:49:33.203Z"
+  },
+  "https://jobright.ai/jobs/info/6a7a7e4f9ee17f276dbf3421": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-09T12:49:33.213Z"
+  },
+  "https://jobright.ai/jobs/info/6ac8960baf788e6ad3b57ee2": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-09T12:49:33.223Z"
+  },
+  "https://jobright.ai/jobs/info/6ac88574fe8f33a85d50026d": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-09T12:49:33.255Z"
+  },
+  "https://jobright.ai/jobs/info/6ac6e26a0e027c0f3b3b4bba": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-09T12:49:33.262Z"
+  },
+  "https://jobright.ai/jobs/info/6ac8853cd4a5a0370740ea21": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-09T12:49:33.271Z"
+  },
+  "https://jobright.ai/jobs/info/6ac86669af788e6ad3b576c8": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-09T12:49:33.280Z"
+  },
+  "https://jobright.ai/jobs/info/6ac8b8fefe8f33a85d500943": {
+    "status": "Unknown",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-09T12:49:33.296Z"
   }
 }
