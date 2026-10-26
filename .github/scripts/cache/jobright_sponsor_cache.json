@@ -27264,5 +27264,17 @@
   "https://jobright.ai/jobs/info/6ade3f5c389e06bb41ada607": {
     "status": "Unknown",
     "checkedAtIso": "2026-10-25T20:34:14.461Z"
+  },
+  "https://jobright.ai/jobs/info/6ade6f065dc7953215a3b52e": {
+    "status": "No",
+    "note": "No H1B",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-26T03:54:04.406Z"
+  },
+  "https://jobright.ai/jobs/info/6ab6b8be634ec6aa7c0d430a": {
+    "status": "Likely",
+    "note": "H1B Sponsor Likely",
+    "isClosed": false,
+    "checkedAtIso": "2026-10-26T03:54:04.434Z"
   }
 }
